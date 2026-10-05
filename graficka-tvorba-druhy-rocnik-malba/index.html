@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malba – Grafická tvorba, 2. ročník | SPŠE a VOŠ Pardubice</title>
+<meta name="description" content="Interaktivní výukový web pro předmět Grafická tvorba ve 2. ročníku oboru IT – Počítačová grafika: akvarel a vodovky, teplé a studené barvy, tóny, zátiší, draperie, portrét, figura, kompozice, digitální malba ve Sketchbooku a Photoshopu, architektura, dopravní prostředek, charakter, komiks a dějiny umění.">
+<meta name="theme-color" content="#23272D">
+<meta property="og:title" content="Malba – Grafická tvorba, 2. ročník">
+<meta property="og:description" content="Ruční akvarelová malba a digitální malba na tabletu – teorie, interaktivní ukázky, návody A3 / 300 DPI / CMYK FOGRA39 a videa pro žáky SPŠE a VOŠ Pardubice.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%2323272D'/%3E%3Cpath d='M6 18c0-3 3-4 5-4s2-3 1-5' fill='none' stroke='%23F4F0E7' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='15' cy='9' r='4.2' fill='%2338C4F0' opacity='.85'/%3E%3Ccircle cx='11.5' cy='12' r='3.4' fill='%23B4532A' opacity='.8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styl.css">
+</head>
+<body>
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<!-- společné SVG filtry: akvarelový okraj a zrnitost papíru -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="wc2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".022" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <nav aria-label="Školní odkazy">
+      <a class="skola" href="https://i4.spse.cz/">Intranet</a>
+      <a class="skola" href="https://supl.spse.cz/">Suplování</a>
+      <a class="skola" href="https://rozvrh.spse.cz/">Rozvrh</a>
+      <a class="od" href="https://spsecz-my.sharepoint.com/:f:/g/personal/svoboda_spse_cz/IgDbvM43I7ekTKYIU8cOZK3qAajBGAELokUpcyz8-JyhzOc?e=HjehVl" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/></svg>2.G Grafická tvorba 26_27 (OneDrive)</a>
+    </nav>
+    <div class="lesson" id="etapaInfo"><b>2. ROČNÍK</b><span>Grafická tvorba</span></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#uvod" aria-label="Úvod – Malba, Grafická tvorba 2. ročník">
+      <img src="img/logo-spse.png" alt="SPŠE a VOŠ Pardubice" width="600" height="168">
+      <span class="brand-sub"><strong>Ruční a digitální malba</strong>Grafická tvorba, 2. ročník</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Etapy
+    </button>
+    <nav class="main-nav" id="menu" aria-label="Etapy výuky malby">
+      <ul>
+        <li><a href="#uvod" data-tab="uvod"><span class="num">⌂</span>Úvod</a></li>
+        <li class="grp">
+          <button type="button" aria-expanded="false" aria-haspopup="true">Ruční malba<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="drop">
+            <span class="grp-label">Ruční malba · 1. pololetí</span>
+            <a href="#akvarel" data-tab="akvarel"><span class="num">01</span><span>Barva a akvarel<small>techniky, papír, štětce, laboratoř</small></span></a>
+            <a href="#barvy" data-tab="barvy"><span class="num">02</span><span>Teplé × studené, světlé × tmavé<small>barevný kruh, tóny, míchání</small></span></a>
+            <a href="#zatisi" data-tab="zatisi"><span class="num">03</span><span>Zátiší a draperie<small>světlo a stín, záhyby látky</small></span></a>
+            <a href="#portret" data-tab="portret"><span class="num">04</span><span>Portrét<small>tělové barvy, postup malby</small></span></a>
+            <a href="#figura" data-tab="figura"><span class="num">05</span><span>Figura<small>kánon, gesto, kontrapost</small></span></a>
+            <a href="#kompozice" data-tab="kompozice"><span class="num">06</span><span>Kompozice a krajina<small>třetiny, plány, hledáček</small></span></a>
+          </div>
+        </li>
+        <li class="grp">
+          <button type="button" aria-expanded="false" aria-haspopup="true">Digitální malba<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="drop">
+            <span class="grp-label">Digitální malba · 2. pololetí</span>
+            <a href="#digital" data-tab="digital"><span class="num">07</span><span>Tablet, A3 a export CMYK<small>Sketchbook, Photoshop, FOGRA39</small></span></a>
+            <a href="#architektura" data-tab="architektura"><span class="num">08</span><span>Architektura a doprava<small>perspektivní mřížka, materiály</small></span></a>
+            <a href="#charakter" data-tab="charakter"><span class="num">09</span><span>Charakter postavy<small>tvarový jazyk, generátor zadání</small></span></a>
+            <a href="#komiks" data-tab="komiks"><span class="num">10</span><span>Komiksový strip<small>záběry, bubliny, šablona A3</small></span></a>
+          </div>
+        </li>
+        <li><a href="#dejiny" data-tab="dejiny"><span class="num">11</span>Dějiny umění</a></li>
+        <li><a href="#techniky" data-tab="techniky"><span class="num">+</span>Další techniky</a></li>
+        <li><a href="#videa" data-tab="videa"><span class="num">▶</span>Videa</a></li>
+        <li><a class="back" href="https://svoboda-koduje.github.io/spse_seznam_soutezi/" target="_blank" rel="noopener" title="Přehled výtvarných a grafických soutěží"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg>Soutěže</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="obsah">
+
+<!-- =========================== ÚVOD =========================== -->
+<section class="panel" id="uvod" data-nazev="Úvod" aria-label="Úvod">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-meta">Grafická tvorba · 2. ročník · IT – Počítačová grafika · 3 hodiny týdně · 99 hodin za rok</p>
+        <h1>Ruční a <em>digitální</em> malba</h1>
+        <p class="lead">V prvním ročníku jste se naučili vidět tvar, prostor a světlo. Teď k tomu přidáte barvu. V prvním pololetí malujete vodovkami a akvarelem, ke konci pololetí přejdete na grafické tablety a ve druhém pololetí malujete digitálně ve Sketchbooku a ve Photoshopu. Na tomto webu najdete teorii, interaktivní ukázky, návody na nastavení programů a vybraná videa.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#akvarel">Začít akvarelem
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#uvod-pomucky">Co si koupit</a>
+          <a class="btn btn-ghost" href="#digital-navody">Návod A3 · 300 DPI · CMYK</a>
+        </div>
+      </div>
+      <figure class="hero-art wc" style="margin:0">
+        <svg viewBox="0 0 520 400" role="img" aria-label="Ilustrace: akvarelová krajina na papíře, vedle tablet s perem, kterým se maluje stejná krajina digitálně">
+          <rect width="520" height="400" fill="#FFFDF8"/>
+          <!-- papír s akvarelem -->
+          <g transform="rotate(-4 150 205)">
+            <rect x="30" y="60" width="250" height="300" fill="#FBF8F1" stroke="rgba(35,39,45,.15)"/>
+            <rect x="30" y="60" width="250" height="300" fill="none" stroke="#E8E1CF" stroke-width="10" opacity=".9"/>
+            <g filter="url(#wc2)">
+              <path d="M40 70 H270 V215 H40Z" fill="#7FB9E6" opacity=".55"/>
+              <path d="M40 70 H270 V140 C210 130 120 150 40 135Z" fill="#2C3E9E" opacity=".22"/>
+              <ellipse cx="200" cy="120" rx="40" ry="16" fill="#fff" opacity=".9"/>
+              <path d="M40 200 C90 165 130 175 170 190 C210 170 240 175 270 185 V250 H40Z" fill="#6F8FB8" opacity=".55"/>
+              <path d="M40 235 C100 210 160 225 270 215 V350 H40Z" fill="#7DB443" opacity=".55"/>
+              <path d="M40 280 C120 262 190 275 270 268 V350 H40Z" fill="#23824B" opacity=".45"/>
+            </g>
+            <g filter="url(#wc)">
+              <ellipse cx="95" cy="230" rx="22" ry="34" fill="#23824B" opacity=".7"/>
+              <ellipse cx="122" cy="245" rx="16" ry="24" fill="#2B5E3A" opacity=".65"/>
+              <path d="M180 300 C200 290 230 292 250 300 C230 312 200 312 180 300Z" fill="#C48A35" opacity=".6"/>
+            </g>
+            <path d="M95 262 V285 M122 266 V284" stroke="#6B4122" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <!-- štětec -->
+          <g transform="rotate(32 250 330)">
+            <rect x="244" y="250" width="12" height="120" rx="5" fill="#B4532A"/>
+            <rect x="244" y="232" width="12" height="22" fill="#C9C6BF"/>
+            <path d="M244 232 C244 214 250 200 250 196 C250 200 256 214 256 232Z" fill="#2C3E9E"/>
+          </g>
+          <!-- tablet -->
+          <g transform="translate(300 110)">
+            <rect x="0" y="0" width="190" height="250" rx="16" fill="#23272D"/>
+            <rect x="12" y="14" width="166" height="222" rx="6" fill="#fff"/>
+            <rect x="12" y="14" width="166" height="96" fill="#BFD9F2"/>
+            <path d="M12 96 C55 70 90 80 120 90 C145 78 165 82 178 86 V140 H12Z" fill="#8FA7C9"/>
+            <path d="M12 120 C70 104 120 118 178 110 V236 H12Z" fill="#9CCB5C"/>
+            <path d="M12 160 C80 148 130 156 178 152 V236 H12Z" fill="#3C8F55"/>
+            <ellipse cx="60" cy="126" rx="14" ry="22" fill="#2E7A47"/>
+            <g stroke="#23272D" stroke-width="1" opacity=".25"><path d="M12 40 H178 M12 70 H178"/></g>
+            <rect x="120" y="22" width="50" height="62" rx="3" fill="#fff" stroke="rgba(0,0,0,.15)"/>
+            <rect x="126" y="28" width="10" height="10" fill="#2C3E9E"/><rect x="140" y="28" width="10" height="10" fill="#7DB443"/><rect x="154" y="28" width="10" height="10" fill="#C48A35"/>
+            <rect x="126" y="44" width="38" height="5" rx="2" fill="#ddd"/><rect x="126" y="54" width="38" height="5" rx="2" fill="#ddd"/><rect x="126" y="64" width="26" height="5" rx="2" fill="#ddd"/>
+          </g>
+          <g transform="rotate(-38 420 300)">
+            <rect x="412" y="230" width="11" height="130" rx="5.5" fill="#3B4048"/>
+            <path d="M412 230 L417.5 208 L423 230Z" fill="#9AA0A8"/>
+            <rect x="412" y="262" width="11" height="14" fill="#5B9BB5"/>
+          </g>
+          <text x="40" y="388" style="font:600 20px Caveat,cursive;fill:#B4532A">1. pololetí – akvarel</text>
+          <text x="318" y="388" style="font:600 20px Caveat,cursive;fill:#0F5673">2. pololetí – tablet</text>
+        </svg>
+        <figcaption>Stejný motiv, dvě techniky. Barva, tón a kompozice fungují v akvarelu i na tabletu podle stejných pravidel.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="section" id="uvod-plan">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Tematický plán 2026/27</span>Čtyři bloky, dvě pololetí</h2>
+        <p>Web kopíruje tematický plán předmětu. Ruční malba probíhá v učebně B201, digitální malba v učebně s grafickými tablety a programy Adobe. Celkem 99 hodin.</p>
+      </div>
+      <div class="pololeti reveal">
+        <div class="p1"><h3>1. pololetí – ruční malba</h3><p>Vodovky a akvarel na čtvrtce A3: práce s vodou a barvou, teplé a studené barvy, tóny, zátiší, draperie, portrét, figura a kompozice.</p></div>
+        <div class="p2"><h3>Konec 1. a celé 2. pololetí – digitální malba</h3><p>Sketchbook na školních tabletech Samsung Galaxy, Photoshop se školními tablety Wacom Intuos, případně vlastní tablet. Výstup vždy A3, 300 DPI, JPEG v CMYK.</p></div>
+      </div>
+      <div class="plan four">
+        <div class="blok reveal" data-n="1">
+          <h3>Základy malby, práce s barvou</h3>
+          <p class="hod">základní techniky · 12 hodin</p>
+          <ul>
+            <li><a href="#akvarel">Barva a akvarel – techniky <small>úvod</small></a></li>
+            <li><a href="#barvy-tepla-studena">Teplé a studené barvy <small>3 h</small></a></li>
+            <li><a href="#barvy-svetle-tmave">Světlé a temné tóny <small>3 h</small></a></li>
+            <li><a href="#zatisi">Geometrické zátiší <small>3 h</small></a></li>
+            <li><a href="#zatisi-draperie">Draperie <small>3 h</small></a></li>
+          </ul>
+        </div>
+        <div class="blok reveal" data-n="2">
+          <h3>Portrét, figura, další témata</h3>
+          <p class="hod">anatomie člověka · 18 hodin</p>
+          <ul>
+            <li><a href="#portret">Malba portrétu <small>6 h</small></a></li>
+            <li><a href="#figura">Malba figury <small>6 h</small></a></li>
+            <li><a href="#kompozice">Kompoziční malířské cvičení <small>6 h</small></a></li>
+          </ul>
+        </div>
+        <div class="blok reveal" data-n="3">
+          <h3>Digitální malba</h3>
+          <p class="hod">tablety, Sketchbook, Photoshop · 24 hodin</p>
+          <ul>
+            <li><a href="#digital">Pracoviště a export pro tisk <small>návod</small></a></li>
+            <li><a href="#architektura">Architektonické téma <small>6 h</small></a></li>
+            <li><a href="#architektura-doprava">Dopravní prostředek <small>6 h</small></a></li>
+            <li><a href="#charakter">Charakter (příběhová postava) <small>6 h</small></a></li>
+            <li><a href="#komiks">Komiksový strip <small>6 h</small></a></li>
+          </ul>
+        </div>
+        <div class="blok reveal" data-n="4">
+          <h3>Dějiny umění</h3>
+          <p class="hod">15 období, vždy s cvičením · 45 hodin</p>
+          <ul>
+            <li><a href="#dejiny">Od paleolitu po antiku <small>12 h</small></a></li>
+            <li><a href="#dejiny">Středověk, renesance, baroko <small>15 h</small></a></li>
+            <li><a href="#dejiny">19. století a secese <small>12 h</small></a></li>
+            <li><a href="#dejiny">Umění 20. a 21. století <small>6 h</small></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="uvod-navyky">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Než začnete</span>Pět návyků dobrého malíře</h2>
+        <p>Platí pro vodovky, akvarel i pro tablet. Kdo si je osvojí, ušetří si spoustu přemalovávání.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="8" width="36" height="32" rx="2"/><circle cx="30" cy="20" r="5" stroke-dasharray="3 3"/><path d="M6 32l10-9 9 8 6-5 11 9"/></svg>
+          <h3>Naplánujte světla</h3>
+          <p>V akvarelu je nejsvětlejší barvou bílý papír. Místa odlesků a nejsvětlejších ploch si v kresbě vyznačte a obcházejte je – dodatečně je už nezískáte.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="18" width="8" height="12" fill="#F1DDD0"/><rect x="15" y="18" width="8" height="12" fill="#D9A68C"/><rect x="24" y="18" width="8" height="12" fill="#A65A3C"/><rect x="33" y="18" width="8" height="12" fill="#5A2B1C"/><path d="M8 38h32M34 34l6 4-6 4"/></svg>
+          <h3>Od světlého k tmavému</h3>
+          <p>Začínejte řídkými světlými vrstvami a postupně přidávejte střední a tmavé tóny. Nejtmavší akcenty patří až na konec.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 14h13l-2 26H10z"/><path d="M27 14h13l-2 26h-9z"/><path d="M10 26h9" stroke="#8a6"/><path d="M29 28h9" stroke="#38C4F0"/></svg>
+          <h3>Dvě nádobky vody</h3>
+          <p>V jedné štětec vymýváte, z druhé berete čistou vodu do barvy. Špinavá voda je nejčastější důvod, proč akvarel zešedne a vypadá „blátivě“.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="10" width="36" height="28" rx="2"/><path d="M10 30c6-8 10-8 14-3s8 4 14-4" stroke="#B4532A"/><path d="M10 16h10"/></svg>
+          <h3>Zkušební proužek</h3>
+          <p>Vedle výkresu mějte kousek stejného papíru. Než barvu položíte do obrazu, vyzkoušejte si její odstín a ředění – po zaschnutí bývá akvarel o třetinu světlejší.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="10" y="6" width="28" height="36" rx="2"/><path d="M10 12H6M10 20H6M10 28H6M10 36H6"/><path d="M16 30c4-6 8-8 16-10"/></svg>
+          <h3>Výtvarný deník</h3>
+          <p>Každý týden alespoň jeden výtvarný záznam do osobního skicáku – skica, barevná studie, postřeh z venku. Deník pravidelně předkládáte k hodnocení.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="uvod-pomucky">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Výtvarné pomůcky</span>Co si koupit</h2>
+        <p>Povinné pomůcky na Grafickou tvorbu ve 2. ročníku si pořizujete sami. Grafické tablety na digitální malbu vám zapůjčí škola – vlastní tablet je dobrovolný.</p>
+      </div>
+      <h3 class="reveal" style="font:700 1.35rem var(--cond);margin:0 0 14px">Povinné pomůcky <span class="badge">ruční malba</span></h3>
+      <ul class="supplies reveal">
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="12" width="32" height="16" rx="2"/><circle cx="11" cy="20" r="3" fill="#F5B921"/><circle cx="20" cy="20" r="3" fill="#D93A2B"/><circle cx="29" cy="20" r="3" fill="#2C3E9E"/></svg><div><b>Vodovky</b><small>sada alespoň 12 barev; lepší školní akvarelové barvy jsou výhodou</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M28 4l8 8-14 14-8-8z"/><path d="M14 18c-6 0-10 4-10 10v8h8c6 0 10-4 10-10"/></svg><div><b>Vlasové štětce</b><small>kulaté, několik velikostí (např. č. 4, 8, 12) + jeden plochý</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="4" width="24" height="32" rx="1"/><rect x="10" y="7" width="24" height="31" rx="1" fill="#fff"/></svg><div><b>30 kusů kreslicích čtvrtek A3</b><small>silnější čtvrtka (ideálně 220 g/m² a víc) se tolik nevlní</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 8h22l-3 28H12z"/><path d="M10 18h20"/></svg><div><b>Nádobka na vodu</b><small>ideálně dvě – na oplach a na čistou vodu</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 10c6-4 22-4 28 0v20c-6 4-22 4-28 0z"/><path d="M12 16c4 2 12 2 16 0"/></svg><div><b>Hadřík</b><small>na osušení štětce a vytírání barvy</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l16-6 16 6-16 6z"/><path d="M4 12v14l16 8 16-8V12" stroke-dasharray="3 3"/></svg><div><b>Igelit na stůl</b><small>ochrana lavice před vodou a barvou</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="20" r="12"/><circle cx="18" cy="20" r="5"/><path d="M30 20h7v5h-7"/></svg><div><b>Lepicí páska</b><small>papírová – na napnutí čtvrtky k podložce</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="6" width="26" height="30" rx="2"/><path d="M8 10h-3M8 16h-3M8 22h-3M8 28h-3"/><path d="M14 26c4-6 8-8 14-10"/></svg><div><b>Osobní skicák</b><small>výtvarný deník – každý týden alespoň jeden záznam</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 34 L30 10 L34 14 L10 38 L4 38Z"/><path d="M26 14l4 4"/></svg><div><b>Měkké tužky 6B–8B</b><small>na lehkou přípravnou kresbu pod malbu</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 26 L22 10 L34 22 L18 38 L10 38 Z"/><path d="M14 18l12 12"/></svg><div><b>Gumy Maped</b><small>měkká guma, která nepoškodí papír</small></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="12" width="24" height="18" rx="2"/><circle cx="20" cy="21" r="5"/><path d="M12 12V8h16v4"/></svg><div><b>Ořezávátko kovové</b></div></li>
+        <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h14l3 4h15v20H4z"/><path d="M4 18h32"/></svg><div><b>Desky na výkresy</b><small>formát A3 – malby se nesmí zmačkat</small></div></li>
+      </ul>
+
+      <div class="cols-2" style="margin-top:clamp(36px,5vw,60px)">
+        <div class="card reveal">
+          <span class="badge">digitální malba</span>
+          <h3 style="margin-top:10px">Tablety zapůjčuje škola</h3>
+          <p>Na digitální malbu nemusíte nic kupovat. Ve škole jsou připravené <b>tablety Samsung Galaxy</b> s perem a aplikací <b>Sketchbook</b> a počítače s <b>Photoshopem</b> a tablety <b>Wacom Intuos</b>. Jak je nastavit, popisuje etapa <a href="#digital">Tablet, A3 a export CMYK</a>.</p>
+        </div>
+        <div class="card reveal">
+          <span class="badge light">dobrovolně</span>
+          <h3 style="margin-top:10px">Chcete vlastní tablet?</h3>
+          <ul>
+            <li><b>Tablet bez displeje</b> (pen tablet, např. Wacom Intuos, XP-Pen, Huion) se připojí k počítači. Je nejlevnější, ale chce trochu cviku – kreslíte na stůl a díváte se na monitor.</li>
+            <li><b>Tablet s displejem</b> kreslí přímo do obrazu. Pohodlnější, dražší, potřebuje počítač.</li>
+            <li><b>Samostatný tablet s perem</b> (Android, iPad) funguje bez počítače s aplikacemi jako Sketchbook nebo Procreate.</li>
+          </ul>
+          <p class="note">Rozhodující je citlivost na přítlak pera a funkční ovladač pro váš systém. Před koupí se klidně poraďte s vyučujícím.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="uvod-hodnoceni">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Jak se hodnotí</span>Praxe, deník a teorie</h2>
+        <p>Shrnutí pravidel klasifikace předmětu GT pro třídu 2.G ve školním roce 2026/27. Úplné znění najdete ve sdílené složce předmětu.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal"><h3>Praktická cvičení</h3><p>Za celý rok namalujete minimálně <b>20 praktických výtvarných cvičení</b> podle zadání z tematického plánu. Hodnotí se perspektiva, proporce, plošná a prostorová kompozice, práce s barvami, psychologie barev a zvládnutí druhů malby.</p></div>
+        <div class="card reveal"><h3>Výtvarný deník</h3><p>Povinnou součástí průběžné práce je pravidelné předkládání osobního výtvarného deníku – <b>alespoň jeden výtvarný záznam každý týden</b>.</p></div>
+        <div class="card reveal"><h3>Teorie</h3><p>Nejvýše <b>dva písemné testy</b> za rok (jeden za pololetí) z výtvarné teorie a terminologie. Kvízy na konci etap vám pomohou se připravit.</p></div>
+        <div class="card reveal"><h3>Absence a opravy</h3><p>Všechna cvičení i testy je nutné splnit a za dobu nepřítomnosti doplnit, a to i při distanční výuce. Známky si lze opravit. Výsledná známka je vážený průměr s přihlédnutím k aktivitě.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="uvod-odkazy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Užitečné odkazy</span>Kam dál</h2>
+        <p>Zdrojové soubory a předlohy, navazující výukové weby, soutěže a obrazové nástěnky.</p>
+      </div>
+      <div class="links-grid reveal">
+        <a class="link-card" href="https://spsecz-my.sharepoint.com/:f:/g/personal/svoboda_spse_cz/IgDbvM43I7ekTKYIU8cOZK3qAajBGAELokUpcyz8-JyhzOc?e=HjehVl" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg><div><b>2.G Grafická tvorba 26_27</b><span>Zdrojové soubory na OneDrive – předlohy k tisku, návody, ovladače (školní účet).</span></div></a>
+        <a class="link-card" href="https://svoboda-koduje.github.io/enviro-projekty-3g/vyuka/01-barevna-paleta.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18" fill="#F1DDD0"/><circle cx="8" cy="9" r="1.4" fill="currentColor"/><circle cx="14" cy="7.5" r="1.4" fill="currentColor"/></svg><div><b>Teorie barev</b><span>Barevné modely, harmonie a palety – interaktivní lekce.</span></div></a>
+        <a class="link-card" href="https://svoboda-koduje.github.io/dejiny_umeni/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M3 10l9-6 9 6z"/></svg><div><b>Časová osa dějin umění</b><span>Výukový web k bloku Dějiny umění.</span></div></a>
+        <a class="link-card" href="https://svoboda-koduje.github.io/spse_seznam_soutezi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg><div><b>Výtvarné soutěže</b><span>Přehled soutěží, do kterých můžete poslat své malby.</span></div></a>
+        <a class="link-card" href="https://honza-modeluje.github.io/komiksovy_rozcestnik/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><div><b>Komiksový rozcestník</b><span>Čeští komiksoví tvůrci, festivaly a inspirace.</span></div></a>
+        <a class="link-card" href="https://sketch.spse.cz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg><div><b>Projekt SKETCH</b><span>Školní přednáškový a workshopový projekt.</span></div></a>
+      </div>
+      <h3 class="reveal" style="font:700 1.35rem var(--cond);margin:34px 0 12px" id="uvod-pinterest">Obrazové nástěnky na Pinterestu</h3>
+      <div class="inline-links reveal">
+        <a href="https://cz.pinterest.com/jarsvobodajs/malba-krajiny/" target="_blank" rel="noopener">Malba krajiny</a>
+        <a href="https://cz.pinterest.com/jarsvobodajs/portr%C3%A9t/" target="_blank" rel="noopener">Portrét</a>
+        <a href="https://cz.pinterest.com/jarsvobodajs/figur%C3%A1ln%C3%AD-kresba-a-malba/" target="_blank" rel="noopener">Figurální kresba a malba</a>
+        <a href="https://cz.pinterest.com/jarsvobodajs/komiks/" target="_blank" rel="noopener">Komiks</a>
+        <a href="https://cz.pinterest.com/jarsvobodajs/z%C3%A1klady-kresby/" target="_blank" rel="noopener">Základy kresby</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =========================== 1 BARVA A AKVAREL =========================== -->
+<section class="panel" id="akvarel" data-etapa="1" data-nazev="Barva a akvarel" aria-label="Etapa 1 – Barva a akvarel">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 01 / 11</span><span class="blok">Blok 1 · Základy malby, práce s barvou, základní techniky</span></span>
+    <h1>Barva, voda a papír</h1>
+    <p class="lead">Akvarel a vodovky jsou průsvitné vodové barvy. Světlo do obrazu nedává bílá barva, ale papír, který prosvítá vrstvami pigmentu. Malíř proto ovládá hlavně vodu: kolik jí je ve štětci, kolik na papíře a kdy nechat vrstvu zaschnout. Než se pustíte do zadání, vyzkoušejte si základní techniky – na papíře i v laboratoři níže.</p>
+    <ul class="zadani">
+      <li><b>úvod</b>Zkušební arch technik: plochá a přechodová lavírka, mokré do mokrého, lazura</li>
+      <li><b>B201</b>Ruční malba ve výtvarné učebně</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#akvarel-material">Barvy, papír, štětce</a><a href="#akvarel-techniky">Techniky</a><a href="#akvarel-lab">Akvarelová laboratoř</a><a href="#akvarel-postup">Postup malby</a><a href="#akvarel-chyby">Časté chyby</a><a href="#akvarel-ukazky">Ukázky</a><a href="#akvarel-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="akvarel-material">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Vodovky, nebo akvarel?</h3>
+        <p>Obojí je jemně mletý <span class="term">pigment</span> pojený <span class="term">arabskou gumou</span> a ředěný vodou. Rozdíl je hlavně v kvalitě: školní <b>vodovky</b> mají méně pigmentu a více plnidel, barvy jsou méně syté a hůř se vrství. <b>Akvarelové barvy</b> (v pánvičkách nebo tubách) obsahují víc a jemnějšího pigmentu, jsou zářivější a lépe snášejí lazury. Všechno, co se tu naučíte, platí pro obojí.</p>
+        <h3>Papír</h3>
+        <p>Čím je papír silnější, tím víc vody unese, aniž by se zvlnil. Na vodovky stačí kvalitní <span class="term">kreslicí čtvrtka</span>, pro akvarel je ideální speciální akvarelový papír (300 g/m²). Papír před malbou <b>přilepte páskou po celém obvodu</b> k podložce – po zaschnutí zůstane rovný a získáte čistý bílý okraj.</p>
+        <h3>Štětce</h3>
+        <ul>
+          <li><b>Kulatý vlasový štětec</b> je univerzální – široce položený maluje plochy, špičkou detaily. Stačí tři velikosti: malá, střední, velká.</li>
+          <li><b>Plochý štětec</b> se hodí na rovnoměrné lavírky a oblohu.</li>
+          <li>Dobrý štětec <b>drží hodně vody</b> a po namočení se sám stáhne do špičky. Po malbě ho umyjte a nechte schnout naležato nebo špičkou nahoru.</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="card tint">
+          <h3>Voda je hlavní nástroj</h3>
+          <p>Poměr barvy a vody určuje světlost tónu. Tento poměr si pamatujte jako „čaj – káva – mléko – smetana“:</p>
+          <div class="swatch-row" style="margin:12px 0" aria-hidden="true">
+            <div class="swatch" style="background:#D6E0F1;color:#334;text-shadow:none">čaj</div>
+            <div class="swatch" style="background:#9AB0DA">káva</div>
+            <div class="swatch" style="background:#5874BC">mléko</div>
+            <div class="swatch" style="background:#2C3E9E">smetana</div>
+          </div>
+          <ul>
+            <li><b>Čaj</b> – hodně vody, málo barvy. První lazury, obloha, vzdálené plány.</li>
+            <li><b>Káva</b> – střední tóny, většina ploch.</li>
+            <li><b>Mléko</b> – sytější barva pro stíny.</li>
+            <li><b>Smetana</b> – skoro čistá barva, jen na tmavé akcenty.</li>
+          </ul>
+        </div>
+        <div class="tip"><b>Po zaschnutí světlejší</b>Mokrý akvarel se leskne a vypadá tmavší. Po zaschnutí zesvětlí až o třetinu – míchejte proto barvu o něco sytější, než chcete mít výsledek.</div>
+        <div class="tip"><b>Teorie barev</b>Podrobný výklad barevných modelů, harmonií a palet najdete na webu <a href="https://svoboda-koduje.github.io/enviro-projekty-3g/vyuka/01-barevna-paleta.html" target="_blank" rel="noopener">Teorie barev ↗</a>. Míchání a teplotu barev procvičíte v další etapě.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="akvarel-techniky">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Základní techniky</span>Šest způsobů, jak položit barvu</h2>
+        <p>Namalujte si všechny na jeden arch A3 a popište je. Tento „vzorník technik“ budete používat celý rok.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="260" height="90" fill="#FBF8F1"/><rect x="14" y="12" width="232" height="66" fill="#5874BC" opacity=".55" filter="url(#wc)"/></svg>
+          <h3>Plochá lavírka</h3>
+          <p>Rovnoměrná plocha jednoho tónu. Papír mírně nakloňte, malujte vodorovné pruhy širokým štětcem a každý další pruh navazujte na ještě mokrý okraj předchozího.</p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><defs><linearGradient id="g-prechod" x1="0" x2="1"><stop offset="0" stop-color="#2C3E9E" stop-opacity=".85"/><stop offset="1" stop-color="#2C3E9E" stop-opacity=".03"/></linearGradient></defs><rect width="260" height="90" fill="#FBF8F1"/><rect x="14" y="12" width="232" height="66" fill="url(#g-prechod)" filter="url(#wc)"/></svg>
+          <h3>Přechodová lavírka</h3>
+          <p>Tón plynule slábne do ztracena. Po každém pruhu přidejte do štětce víc čisté vody. Typická pro oblohu – nahoře sytá, k horizontu světlá.</p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="260" height="90" fill="#FBF8F1"/><g filter="url(#soft)"><ellipse cx="80" cy="45" rx="50" ry="26" fill="#D93A2B" opacity=".55"/><ellipse cx="135" cy="48" rx="44" ry="24" fill="#F5B921" opacity=".6"/><ellipse cx="185" cy="44" rx="46" ry="26" fill="#2C3E9E" opacity=".5"/></g></svg>
+          <h3>Mokré do mokrého</h3>
+          <p>Papír nejdřív navlhčete čistou vodou, pak do něj vpusťte barvu. Rozlije se do měkkých, neostrých tvarů a barvy se na papíře samy promíchají. Mraky, mlha, rozostřené pozadí.</p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="260" height="90" fill="#FBF8F1"/><g filter="url(#wc)"><path d="M30 70 L60 20 L90 70Z" fill="#23824B" opacity=".75"/><path d="M90 70 L118 28 L146 70Z" fill="#23824B" opacity=".6"/><path d="M150 72 C170 30 210 30 230 72Z" fill="#C48A35" opacity=".7"/></g></svg>
+          <h3>Mokré do suchého</h3>
+          <p>Mokrou barvou malujete na suchý papír. Tahy mají ostré, jasné okraje. Tak malujete tvary, detaily a vše, co má být v obraze zřetelné.</p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="260" height="90" fill="#FBF8F1"/><g filter="url(#wc)" style="mix-blend-mode:multiply"><rect x="20" y="14" width="120" height="62" fill="#F5B921" opacity=".7"/><rect x="90" y="14" width="150" height="62" fill="#1665A8" opacity=".5"/></g><text x="114" y="86" text-anchor="middle" style="font:600 13px Caveat,cursive;fill:#23824B">= zelená</text></svg>
+          <h3>Lazura</h3>
+          <p>Průsvitná vrstva barvy přes <b>úplně zaschlou</b> spodní vrstvu. Barvy se mísí opticky – žlutá pod modrou dá zelenou. Lazurami prohlubujete stíny a sjednocujete barevnost.</p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 260 90" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="260" height="90" fill="#FBF8F1"/><rect x="14" y="12" width="232" height="66" fill="#6A3B8F" opacity=".55" filter="url(#wc)"/><g filter="url(#soft)"><ellipse cx="90" cy="45" rx="30" ry="16" fill="#FBF8F1" opacity=".9"/></g><g fill="#FBF8F1" opacity=".9"><circle cx="170" cy="36" r="2"/><circle cx="182" cy="50" r="1.6"/><circle cx="196" cy="40" r="2.4"/><circle cx="160" cy="55" r="1.4"/><circle cx="205" cy="58" r="1.8"/></g></svg>
+          <h3>Vytírání a efekty</h3>
+          <p>Do mokré barvy můžete savým papírem nebo suchým štětcem <b>vytřít světlo</b> (mraky, odlesky). Kuchyňská sůl na mokré ploše vytvoří hvězdičkovou texturu, cákanec štětcem oživí okraje.</p>
+        </div>
+      </div>
+      <div class="tip reveal"><b>Vynechaná bílá</b>Bílou barvu v akvarelu nepoužíváme – zakalí ostatní barvy. Místa, která mají zůstat bílá (odlesky, sníh, bílá kočka), obcházejte štětcem, nebo je předem zakryjte maskovací tekutinou.</div>
+    </div>
+  </section>
+
+  <section class="section" id="akvarel-lab">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní laboratoř</span>Akvarel na obrazovce</h2>
+        <p>Malujte myší nebo prstem. Simulace počítá s vodou na papíře: do mokrých míst se barva rozlévá, na suchém papíře má ostré okraje a schne do tmavšího lemu. Vyzkoušejte si „mokré do mokrého“ (nejdřív čistá voda, potom barva) a lazuru (vrstva přes zaschlou barvu).</p>
+      </div>
+      <div class="lab reveal" id="lab-akvarel">
+        <div class="lab-head"><h3>Akvarelová laboratoř</h3><span class="hint">malujte po papíře</span></div>
+        <div class="lab-body">
+          <div class="lab-stage wc-paper" style="min-height:300px;cursor:crosshair"><canvas id="cv-akv" aria-label="Plocha pro malbu akvarelem"></canvas></div>
+          <div class="lab-ctrl">
+            <div class="seg" role="group" aria-label="Nástroj"><button type="button" data-akv-nastroj="barva" aria-pressed="true">Štětec s barvou</button><button type="button" data-akv-nastroj="voda" aria-pressed="false">Čistá voda</button></div>
+            <div><span style="font-weight:600;display:block;margin-bottom:6px">Vodovky</span><div class="palette" id="akv-paleta"></div></div>
+            <label><span>Ředění vodou <output id="o-akv-voda"></output></span><input type="range" id="r-akv-voda" min="0.05" max="0.95" step="0.01" value="0.5"></label>
+            <label><span>Velikost štětce <output id="o-akv-vel"></output></span><input type="range" id="r-akv-vel" min="6" max="60" step="1" value="24"></label>
+            <div class="row"><button class="btn btn-small btn-ghost" type="button" id="akv-vysusit">Vysušit</button><button class="btn btn-small btn-ghost" type="button" id="akv-novy">Nový papír</button><button class="btn btn-small btn-primary" type="button" id="akv-ukazka">Ukázka technik</button></div>
+            <div class="readout" id="akv-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="akvarel-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Postup</span>
+        <h3>Jak malovat akvarelem krok za krokem</h3>
+        <ol class="steps">
+          <li><b>Lehká kresba</b> měkkou tužkou, jen obrysy hlavních tvarů. Tvrdé a tmavé čáry by prosvítaly.</li>
+          <li><b>Vyznačte světla</b> – místa, kam nesmí barva. Případně je zakryjte maskovací tekutinou.</li>
+          <li><b>První lazura</b> přes velké plochy: světlé, řídké tóny („čaj“), klidně mokré do mokrého.</li>
+          <li>Nechte <b>zaschnout</b>. Mezitím si na zkušebním proužku namíchejte další tóny.</li>
+          <li><b>Střední tóny</b> – lokální barvy předmětů a vlastní stíny („káva“).</li>
+          <li><b>Tmavé tóny a akcenty</b> – vržené stíny, nejtmavší místa, detaily („smetana“).</li>
+          <li>Odstupte a porovnejte. Raději skončete o krok dřív, než obraz „přemalujete“.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <div class="gallery" data-gallery="akvarel" data-only="postup|skica-krajiny" style="columns:2 180px"></div>
+        <p class="note">Dvě ukázky postupu: jednotlivé fáze malby vedle sebe. Klepnutím zvětšíte.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="akvarel-chyby">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Na co si dát pozor</span>
+        <h3>Nejčastější chyby</h3>
+        <div class="tip chyba"><b>Bláto místo barvy</b>Příliš mnoho vrstev, míchání mnoha barev najednou a špinavá voda. Výsledkem je šedohnědá šmouha. Míchejte nejvýše tři barvy, měňte vodu a nechte vrstvy zaschnout.</div>
+        <div class="tip chyba"><b>„Květák“ (výkvět)</b>Když do napůl zaschlé plochy kápnete mokrou barvu nebo vodu, voda se vrací zpět a vytvoří roztřepený lem. Do plochy malujte, dokud je lesklá, nebo až když je úplně suchá.</div>
+        <div class="tip chyba"><b>Málo vody, moc barvy</b>Hustá barva nekryje rovnoměrně, zůstávají stopy štětce a malba ztrácí průsvitnost. Akvarel potřebuje odvahu použít vodu.</div>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Zadání</span>
+        <h3>Vzorník akvarelových technik</h3>
+        <p>Rozdělte formát A3 na šest až devět polí. Do každého namalujte jednu techniku a pod ni ji tužkou popište. Do posledních polí namalujte malý motiv (strom, mrak, kapku), u kterého techniky zkombinujete.</p>
+        <ol class="steps">
+          <li>Přilepte čtvrtku páskou k desce.</li>
+          <li>Lehce tužkou rozvrhněte pole s okraji.</li>
+          <li>Plochá lavírka, přechodová lavírka, mokré do mokrého.</li>
+          <li>Mokré do suchého, lazura dvou barev, vytírání.</li>
+          <li>Malý motiv – kombinace technik.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="akvarel-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Obrazové ukázky</span>Akvarel v praxi</h2><p>Stromy, obloha, zvířata. Všimněte si, kolik bílého papíru malíři nechávají a jak se okraje tvarů ztrácejí do vody. Kliknutím obrázek zvětšíte, šipkami listujete.</p></div>
+      <div class="gallery" data-gallery="akvarel" data-except="postup|skica-krajiny"></div>
+    </div>
+  </section>
+  <section class="section" id="akvarel-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Podívejte se, jak na to</h2><p>Anglická videa mají titulky – v přehrávači YouTube zapněte ozubené kolo → Titulky → Automaticky přeložit → čeština.</p></div>
+      <div class="videos" data-videos="akvarel"></div>
+    </div>
+  </section>
+  <section class="section" id="akvarel-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="akvarel"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 2 BARVY A TÓNY =========================== -->
+<section class="panel" id="barvy" data-etapa="2" data-nazev="Teplé × studené, světlé × tmavé" aria-label="Etapa 2 – Teplé a studené barvy, světlé a tmavé tóny">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 02 / 11</span><span class="blok">Blok 1 · Základy malby, práce s barvou</span></span>
+    <h1>Teplé a studené, světlé a tmavé</h1>
+    <p class="lead">Každá barva má tři vlastnosti: <b>odstín</b> (jakou má „jméno“ – červená, modrá), <b>jas</b> (jak je světlá) a <b>sytost</b> (jak je čistá a intenzivní). Ve dvou kompozičních cvičeních si vyzkoušíte, jak s nimi pracovat: nejdřív s teplotou barev, potom se světlostí tónů.</p>
+    <ul class="zadani">
+      <li><b>3 h</b>Kompoziční barevné cvičení s teplými a studenými barvami</li>
+      <li><b>3 h</b>Kompoziční barevné cvičení se světlými a temnými tóny</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#barvy-pojmy">Pojmy</a><a href="#barvy-kruh">Barevný kruh</a><a href="#barvy-michani">Míchání</a><a href="#barvy-tepla-studena">Teplé × studené</a><a href="#barvy-svetle-tmave">Světlé × tmavé</a><a href="#barvy-hledacek">Tónový hledáček</a><a href="#barvy-ukazky">Ukázky</a><a href="#barvy-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="barvy-pojmy">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Barva jako počitek</h3>
+        <p>Barvu vnímáme očima jako světlo o vlnové délce zhruba 400–700 nm. Přes zrak přijímáme asi 80 % informací o okolí – barva nám pomáhá rozpoznat tvary, prostor i náladu.</p>
+        <ul>
+          <li><span class="term">Odstín</span> je základní barva ze spektra s vlastním názvem.</li>
+          <li><span class="term">Jas (světlost)</span> je postavení barvy na stupnici od bílé k černé.</li>
+          <li><span class="term">Sytost</span> je intenzita barvy – čistá modrá je sytá, šedomodrá málo sytá.</li>
+          <li><span class="term">Primární barvy</span> malíře – červená, žlutá, modrá – nenamícháte z jiných.</li>
+          <li><span class="term">Sekundární barvy</span> vzniknou smícháním dvou primárních: oranžová, zelená, fialová.</li>
+          <li><span class="term">Doplňkové (komplementární) barvy</span> leží v barevném kruhu proti sobě. Vedle sebe tvoří největší kontrast, smíchané se ztlumí do šedé.</li>
+        </ul>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Psychologie barev</span>
+        <h3>Teplé, studené a neutrální</h3>
+        <ul>
+          <li><span class="term">Teplé barvy</span> – žlutá, oranžová, červená. Působí blízko, opticky vystupují, jsou energické.</li>
+          <li><span class="term">Studené barvy</span> – modrá, modrozelená, modrofialová. Ustupují do hloubky, uklidňují. Při úbytku světla se barvy posouvají k modré (slunce za mrakem).</li>
+          <li><span class="term">Klidné barvy</span> – odstíny zelené a zelenomodré. <span class="term">Vzrušivé</span> – červenooranžové, červené, purpurové.</li>
+          <li><span class="term">Neutrální barvy</span> – stupnice šedých od bílé po černou.</li>
+          <li><span class="term">Kolorit</span> je celkový barevný dojem z obrazu – vlastní výběr odstínů a tónů typický pro malíře nebo epochu.</li>
+          <li><span class="term">Vzdušná perspektiva</span> – se vzdáleností barvy ztrácejí jas, sytost i kontrast, modrají a šednou. Tak vzniká iluze hloubky krajiny.</li>
+        </ul>
+        <div class="tip"><b>Teplota je relativní</b>Citronová žlutá je studenější než oranžová, karmín studenější než rumělka. Barva působí teple nebo studeně vždy ve vztahu k sousedním barvám.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-kruh">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní barevný kruh</span>Vztahy mezi barvami</h2>
+        <p>Klikněte na barvu v kruhu a přepínejte typ barevného vztahu. P = primární, S = sekundární, T = terciární barva.</p>
+      </div>
+      <div class="lab reveal">
+        <div class="lab-head"><h3>Barevný kruh malíře</h3><span class="hint">klikněte na barvu</span></div>
+        <div class="wheel-wrap">
+          <div class="lab-stage"><svg id="svg-kruh" viewBox="0 0 420 420" role="group" aria-label="Barevný kruh s dvanácti barvami"></svg></div>
+          <div class="lab-ctrl">
+            <div class="seg" role="group" aria-label="Typ vztahu" style="display:flex;flex-direction:column">
+              <button type="button" data-kruh="dopl" aria-pressed="true">Doplňkové barvy</button>
+              <button type="button" data-kruh="pribuz" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">Příbuzné (harmonické)</button>
+              <button type="button" data-kruh="triada" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">Triáda</button>
+              <button type="button" data-kruh="teplota" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">Teplé × studené</button>
+            </div>
+            <div class="readout" id="kruh-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-michani">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Laboratoř míchání</span>Co vznikne z vodovek</h2>
+        <p>Vyberte dvě barvy ze školní sady, nastavte poměr a množství vody. Vpravo uvidíte výsledek i jeho světlost v šedi. Míchání pigmentů je <b>subtraktivní</b> – každá barva pohlcuje část světla, proto se směsi spíš ztmavují a ztrácejí sytost.</p>
+      </div>
+      <div class="lab reveal" id="lab-mix">
+        <div class="lab-head"><h3>Míchání dvou barev</h3><span class="hint">simulace – skutečné pigmenty se mohou lišit</span></div>
+        <div class="lab-body wide">
+          <div class="lab-stage" style="padding:22px;min-height:0;display:flex;flex-direction:column;gap:18px;justify-content:center">
+            <div class="mix-result">
+              <div class="blob" id="mix-blob" aria-label="Výsledná barva"></div>
+              <div class="blob" id="mix-blob-seda" style="width:70px;height:56px" aria-label="Výsledek v odstínech šedi"></div>
+              <p id="mix-popis" style="flex:1 1 260px;margin:0"></p>
+            </div>
+            <div><span class="note">Stejná směs s různým množstvím vody:</span><div class="swatch-row" id="mix-skala" style="margin-top:6px"></div></div>
+          </div>
+          <div class="lab-ctrl">
+            <div><span style="font-weight:600;display:block;margin-bottom:6px">1. barva</span><div class="palette" id="mix-a"></div></div>
+            <div><span style="font-weight:600;display:block;margin-bottom:6px">2. barva</span><div class="palette" id="mix-b"></div></div>
+            <label><span>Poměr barev <output id="o-mix-pomer"></output></span><input type="range" id="r-mix-pomer" min="0" max="1" step="0.01" value="0.5"></label>
+            <label><span>Voda <output id="o-mix-voda"></output></span><input type="range" id="r-mix-voda" min="0" max="0.95" step="0.01" value="0.35"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-tepla-studena">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání 1 · 3 hodiny</span>
+        <h3>Kompoziční cvičení s teplými a studenými barvami</h3>
+        <p>Namalujte kompozici (zátiší, krajinu, interiér nebo abstraktní kompozici), ve které proti sobě postavíte <b>teplou a studenou</b> barevnost. Jedna skupina musí převládat, druhá ji doplňuje jako kontrast.</p>
+        <ol class="steps">
+          <li>Rozhodněte, co bude <b>teplé</b> (motiv, světlo) a co <b>studené</b> (pozadí, stíny).</li>
+          <li>Udělejte si do skicáku dvě až tři malé barevné skici a vyberte nejlepší.</li>
+          <li>Lehká kresba na A3, první lazury mokré do mokrého.</li>
+          <li>Teplé barvy dejte do popředí a do světel, studené do hloubky a stínů – nebo záměrně naopak.</li>
+          <li>Na závěr zkontrolujte, že teplá i studená část mají světlé i tmavé tóny.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <div class="gallery" data-gallery="barvy" data-only="tepla-studena|ts-zapad|ts-oranzova" style="columns:2 160px"></div>
+        <div class="tip"><b>Tip</b>Teplé světlo = studené stíny. Když na předmět svítí teplé světlo, namalujte jeho stín do modrofialova – obraz okamžitě ožije.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-svetle-tmave">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání 2 · 3 hodiny</span>
+        <h3>Kompoziční cvičení se světlými a temnými tóny</h3>
+        <p>Tentokrát nejde o barvu, ale o <b>světlost</b>. Namalujte motiv tak, aby obsahoval celou tónovou stupnici – od bílého papíru po nejtmavší tón. Můžete malovat i jen jednou barvou (sépie, modrá) – vznikne <span class="term">monochrom</span>.</p>
+        <ol class="steps">
+          <li>Namalujte si na okraj stupnici pěti tónů téže barvy.</li>
+          <li>Ve skice rozdělte motiv na tři skupiny: světlé, střední, tmavé plochy.</li>
+          <li>Malujte od nejsvětlejšího tónu a každý další tón přidávejte přes zaschlou vrstvu.</li>
+          <li>Nejtmavší tón položte vedle nejsvětlejšího v místě, kam chcete přitáhnout pohled.</li>
+        </ol>
+        <svg viewBox="0 0 400 70" style="width:100%;height:auto;margin-top:6px" role="img" aria-label="Tónová stupnice pěti stupňů v modré barvě">
+          <g filter="url(#wc)"><rect x="4" y="8" width="72" height="44" fill="#2C3E9E" opacity=".08"/><rect x="84" y="8" width="72" height="44" fill="#2C3E9E" opacity=".25"/><rect x="164" y="8" width="72" height="44" fill="#2C3E9E" opacity=".48"/><rect x="244" y="8" width="72" height="44" fill="#2C3E9E" opacity=".72"/><rect x="324" y="8" width="72" height="44" fill="#1A2560" opacity=".95"/></g>
+          <g style="font:600 15px Caveat,cursive;fill:#B4532A" text-anchor="middle"><text x="40" y="68">1 papír</text><text x="120" y="68">2</text><text x="200" y="68">3 střed</text><text x="280" y="68">4</text><text x="360" y="68">5 nejtmavší</text></g>
+        </svg>
+      </div>
+      <div class="reveal">
+        <div class="gallery" data-gallery="barvy" data-only="st-konvice|st-slunecnice|st-salek|st-lahev" style="columns:2 160px"></div>
+        <div class="tip"><b>Přimhuřte oči</b>Přimhouřené oči rozostří detaily i barvy a uvidíte jen světlé a tmavé skvrny – přesně to, co v tomto cvičení hodnotíme.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-hledacek">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní nástroj</span>Tónový hledáček</h2>
+        <p>Vyberte ukázku, nebo nahrajte fotku své malby z mobilu (zůstane jen ve vašem prohlížeči). Posuvníkem nebo tažením po obraze porovnáte originál s převodem do šedi, do tří či pěti tónů nebo s mapou teplých a studených barev.</p>
+      </div>
+      <div class="lab reveal">
+        <div class="lab-head"><h3>Kontrola tónů a teploty</h3><span class="hint">táhněte po obraze</span></div>
+        <div class="lab-body">
+          <div class="lab-stage" style="min-height:300px;background:#2B2B2B"><canvas id="cv-tony" aria-label="Porovnání originálu a převedeného obrazu"></canvas></div>
+          <div class="lab-ctrl">
+            <label><span>Ukázka</span><select id="tony-obr" style="font:500 15px var(--font);padding:8px;border:1.5px solid var(--line);border-radius:6px"></select></label>
+            <label><span>…nebo vlastní fotografie</span><input type="file" id="tony-soubor" accept="image/*"></label>
+            <div class="seg" role="group" aria-label="Režim" style="display:grid;grid-template-columns:1fr 1fr">
+              <button type="button" data-tony="seda" aria-pressed="true">Šeď</button><button type="button" data-tony="t3" aria-pressed="false">3 tóny</button>
+              <button type="button" data-tony="t5" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">5 tónů</button><button type="button" data-tony="teplota" aria-pressed="false" style="border-top:1.5px solid var(--ink)">Teplé × studené</button>
+            </div>
+            <label><span>Dělicí čára</span><input type="range" id="r-tony-del" min="0" max="1" step="0.005" value="0.5"></label>
+            <div class="readout" id="tony-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-hra">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Procvičte si oko</span>
+        <h3>Která barva je světlejší?</h3>
+        <p>Sytá barva nás často oklame – zdá se světlá, a přitom je ve stupních šedi tmavá. Klikejte na barevné čtverce v pořadí <b>od nejsvětlejší po nejtmavší</b>. Po posledním kliknutí se barvy převedou do šedi a uvidíte, jak jste odhadli jejich světlost.</p>
+      </div>
+      <div class="tool reveal" id="hra-svetlost">
+        <h3>Seřaďte podle světlosti</h3>
+        <div class="order-game"></div>
+        <div class="order-slots" aria-live="polite"></div>
+        <p class="hra-vysledek" style="min-height:3em;margin:10px 0" aria-live="polite"></p>
+        <button class="btn btn-small btn-primary hra-nova" type="button">Nová sada barev</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="barvy-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Obrazové ukázky</span>Teplota a tón v malbě</h2><p>Ukázky ke cvičením a pomůcky z teorie barev.</p></div>
+      <div class="filters" data-filter-for="gal-barvy" role="group" aria-label="Filtr ukázek"><button type="button" data-filter="vse" aria-pressed="true">Vše</button><button type="button" data-filter="ts" aria-pressed="false">Teplé × studené</button><button type="button" data-filter="st" aria-pressed="false">Světlé × tmavé</button></div>
+      <div class="gallery" id="gal-barvy" data-gallery="barvy"></div>
+    </div>
+  </section>
+  <section class="section" id="barvy-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Barva a tón</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="barvy"></div>
+    </div>
+  </section>
+  <section class="section" id="barvy-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="barvy"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 3 ZÁTIŠÍ A DRAPERIE =========================== -->
+<section class="panel" id="zatisi" data-etapa="3" data-nazev="Zátiší a draperie" aria-label="Etapa 3 – Geometrické zátiší a draperie">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 03 / 11</span><span class="blok">Blok 1 · Základy malby, základní techniky</span></span>
+    <h1>Zátiší a draperie</h1>
+    <p class="lead">Z prvního ročníku znáte krychli, válec a kouli v perspektivě a jejich stínování tužkou. Teď je namalujete barvou. Uvidíte, že stín není jen „tmavší šedá“: má vlastní barvu, odráží barvy okolí a na látce vytváří rytmus záhybů.</p>
+    <ul class="zadani">
+      <li><b>3 h</b>Malba jednoduchého geometrického zátiší</li>
+      <li><b>3 h</b>Malba draperie</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#zatisi-svetlo">Světlo a stín barvou</a><a href="#zatisi-postup">Animace postupu</a><a href="#zatisi-draperie">Draperie</a><a href="#zatisi-chyby">Chyby</a><a href="#zatisi-ukazky">Ukázky</a><a href="#zatisi-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="zatisi-svetlo">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Světlo a stín na tělese</h3>
+        <ul>
+          <li><span class="term">Světlo</span> – část tělesa přivrácená ke zdroji světla. V akvarelu nejsvětlejší lazura nebo čistý papír.</li>
+          <li><span class="term">Odlesk</span> – nejsvětlejší bod na lesklém povrchu. Vždy nechte bílý papír.</li>
+          <li><span class="term">Polostín</span> – přechod mezi světlem a stínem. Tady je barva předmětu nejsytější.</li>
+          <li><span class="term">Vlastní stín</span> – odvrácená strana tělesa. Malujte ji barvou předmětu ztlumenou doplňkovou barvou.</li>
+          <li><span class="term">Reflex</span> – světlo odražené od podložky zpět do stínu. Zesvětlí ho a dodá mu barvu okolí.</li>
+          <li><span class="term">Vržený stín</span> – stín, který těleso vrhá na podložku. U tělesa je nejtmavší a nejostřejší, dál se rozplývá.</li>
+        </ul>
+        <div class="tip"><b>Barva stínu</b>Do stínu nepřidávejte černou. Ztlumte barvu předmětu její doplňkovou barvou (žlutou fialovou, červenou zelenou, oranžovou modrou) – stín zůstane barevný a průsvitný.</div>
+      </div>
+      <figure class="card reveal" style="margin:0">
+        <svg viewBox="0 0 400 300" style="width:100%;height:auto" role="img" aria-label="Malovaná koule s popsaným světlem, polostínem, vlastním stínem, reflexem, odleskem a vrženým stínem">
+          <rect width="400" height="300" fill="#FBF8F1"/>
+          <g filter="url(#wc2)"><rect x="0" y="0" width="400" height="200" fill="#9AB0DA" opacity=".25"/><rect x="0" y="200" width="400" height="100" fill="#E0B98C" opacity=".35"/></g>
+          <g filter="url(#wc)"><path d="M190 235 C240 228 330 236 360 252 C320 266 230 262 180 250Z" fill="#4A3F7A" opacity=".5"/></g>
+          <defs><radialGradient id="koule-akv" cx=".36" cy=".34" r=".72"><stop offset="0" stop-color="#F7E2D2"/><stop offset=".35" stop-color="#E2502A"/><stop offset=".7" stop-color="#8E2A2A"/><stop offset=".88" stop-color="#5A2340"/><stop offset="1" stop-color="#B9653E"/></radialGradient></defs>
+          <circle cx="170" cy="168" r="72" fill="url(#koule-akv)" filter="url(#wc)"/>
+          <ellipse cx="146" cy="140" rx="11" ry="8" fill="#FBF8F1"/>
+          <g style="font:600 17px Caveat,cursive;fill:#23272D">
+            <path d="M146 140 L70 74" stroke="#23272D" stroke-width="1"/><text x="30" y="68">odlesk</text>
+            <path d="M136 172 L50 150" stroke="#23272D" stroke-width="1"/><text x="18" y="146">světlo</text>
+            <path d="M195 128 L270 70" stroke="#23272D" stroke-width="1"/><text x="272" y="68">polostín</text>
+            <path d="M215 190 L300 160" stroke="#23272D" stroke-width="1"/><text x="302" y="158">vlastní stín</text>
+            <path d="M200 232 L262 205" stroke="#23272D" stroke-width="1"/><text x="264" y="200">reflex</text>
+            <path d="M300 252 L330 284" stroke="#23272D" stroke-width="1"/><text x="236" y="292">vržený stín</text>
+          </g>
+          <path d="M30 30 l40 30" stroke="#B4532A" stroke-width="2" stroke-linecap="round"/><path d="M70 60 l-12 -1 m12 1 l-4 -11" stroke="#B4532A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <figcaption class="note" style="margin-top:8px">Světlo zleva shora. Vlastní stín je chladnější a ztlumený, reflex nese teplou barvu podložky.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="zatisi-postup">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Animace postupu</span>Geometrické zátiší po vrstvách</h2>
+        <p>Krychle, válec a koule na draperii. Pusťte si animaci, nebo procházejte kroky. Stejné pořadí vrstev použijete u jakéhokoli zátiší.</p>
+      </div>
+      <div class="konstrukce reveal" data-konstrukce>
+        <div class="k-stage"><svg viewBox="0 0 600 400" role="img" aria-label="Postup malby geometrického zátiší akvarelem">
+          <rect width="600" height="400" fill="#FBF8F1"/>
+          <g data-k="1"><g class="g-thin" style="stroke:#9A9A9A">
+            <path d="M20 250 C160 240 420 246 580 256"/><path d="M60 40 C70 120 50 200 70 250 M470 40 C480 130 460 200 490 252" stroke-dasharray="3 4"/>
+            <path d="M120 200 L175 180 L235 195 L180 218Z M120 200 V280 L180 300 L235 275 V195 M180 218 V300"/>
+            <ellipse cx="290" cy="170" rx="38" ry="11"/><path d="M252 170 V295 M328 170 V295 M252 295 A38 11 0 0 0 328 295"/>
+            <circle cx="420" cy="262" r="48"/></g></g>
+          <g data-k="2" filter="url(#wc2)">
+            <path fill-rule="evenodd" d="M20 20 H580 V252 C420 246 160 240 20 250Z M120 200 L175 180 L235 195 V275 L180 300 L120 280Z M252 170 A38 11 0 0 1 328 170 V295 H252Z M372 262 A48 48 0 1 0 468 262 A48 48 0 1 0 372 262Z" fill="#8FA9D8" opacity=".38"/>
+            <path fill-rule="evenodd" d="M20 250 C160 240 420 246 580 256 V385 H20Z M120 200 L175 180 L235 195 V275 L180 300 L120 280Z M252 170 A38 11 0 0 1 328 170 V295 A38 11 0 0 1 252 295Z M372 262 A48 48 0 1 0 468 262 A48 48 0 1 0 372 262Z" fill="#E6B98A" opacity=".45"/>
+          </g>
+          <g data-k="3" filter="url(#wc)">
+            <path d="M120 200 L175 180 L235 195 V275 L180 300 L120 280Z" fill="#F5B921" opacity=".42"/>
+            <path fill-rule="evenodd" d="M252 170 A38 11 0 0 1 328 170 V295 A38 11 0 0 1 252 295Z M262 178 H272 V288 H262Z" fill="#D93A2B" opacity=".38"/>
+            <path fill-rule="evenodd" d="M372 262 A48 48 0 1 0 468 262 A48 48 0 1 0 372 262Z M394 244 A9 7 0 1 0 412 244 A9 7 0 1 0 394 244Z" fill="#2C59B8" opacity=".38"/>
+          </g>
+          <g data-k="4" filter="url(#wc)">
+            <path d="M180 218 L235 195 V275 L180 300Z" fill="#6A3B8F" opacity=".38"/>
+            <path d="M300 172 C312 170 322 168 328 170 V295 C320 300 310 302 300 300Z" fill="#5A2340" opacity=".38"/>
+            <path d="M440 218 C478 236 478 300 430 309 C396 312 380 296 376 286 C410 300 450 280 440 218Z" fill="#1E2A6E" opacity=".45"/>
+          </g>
+          <g data-k="5" filter="url(#wc)">
+            <path d="M235 275 L300 268 L340 282 L180 300Z" fill="#4A3F7A" opacity=".45"/>
+            <path d="M328 292 C360 290 400 296 410 304 C380 312 340 310 320 302Z" fill="#4A3F7A" opacity=".42"/>
+            <path d="M458 290 C500 286 545 292 560 300 C530 312 480 312 440 306Z" fill="#4A3F7A" opacity=".42"/>
+          </g>
+          <g data-k="6">
+            <path d="M120 280 L180 300 L235 275" stroke="#2A2038" stroke-width="2.4" fill="none" opacity=".7"/>
+            <path d="M252 295 A38 11 0 0 0 328 295" stroke="#2A2038" stroke-width="2.4" fill="none" opacity=".7"/>
+            <path d="M392 302 C410 312 440 312 458 300" stroke="#2A2038" stroke-width="2.4" fill="none" opacity=".7"/>
+            <path d="M388 292 C400 304 430 306 450 296 C440 304 410 306 388 292Z" fill="#E6B98A" opacity=".55" filter="url(#wc)"/>
+            <path d="M60 40 C70 120 50 200 70 250 M470 40 C480 130 460 200 490 252" stroke="#6F86B8" stroke-width="5" fill="none" opacity=".45" filter="url(#wc)"/>
+          </g>
+        </svg></div>
+        <div class="k-side">
+          <h3>Postup krok za krokem</h3>
+          <ol>
+            <li><b>Lehká kresba</b> těles v perspektivě a hlavních záhybů draperie.</li>
+            <li><b>První lazura</b> pozadí (studená) a podložky (teplá). Tělesa obcházejte – zůstávají bílá.</li>
+            <li><b>Lokální barvy</b> těles světlou lazurou. Odlesky na válci a kouli vynechejte.</li>
+            <li>Po zaschnutí <b>vlastní stíny</b> – barva tělesa ztlumená doplňkovou barvou.</li>
+            <li><b>Vržené stíny</b> na podložku – u těles tmavší a ostřejší, dál měkké.</li>
+            <li><b>Akcenty</b>: tmavé dotykové stíny pod tělesy, teplý reflex na kouli, stíny v záhybech.</li>
+          </ol>
+          <div class="k-ctrl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="zatisi-draperie">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Zadání 2 · draperie</span>Jak se chová látka</h2>
+        <p>Draperie je látka zavěšená nebo položená tak, aby tvořila záhyby. Záhyby nejsou náhodné – vždy vycházejí z <b>bodů napětí</b>, tedy míst, kde je látka zavěšená, přichycená nebo podložená předmětem. Najděte je jako první.</p>
+      </div>
+      <div class="cols">
+        <figure class="card reveal" style="margin:0"><svg viewBox="0 0 220 150" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="220" height="150" fill="#FBF8F1"/><g filter="url(#wc)"><path d="M40 10 C50 60 40 110 50 140 L80 140 C70 100 80 50 70 10Z" fill="#2C59B8" opacity=".25"/><path d="M70 10 C78 60 70 110 80 140 L110 140 C104 100 112 50 100 10Z" fill="#2C59B8" opacity=".45"/><path d="M100 10 C108 60 104 110 112 140 L142 140 C136 100 142 50 132 10Z" fill="#2C59B8" opacity=".22"/><path d="M132 10 C140 60 136 110 146 140 L176 140 C168 100 172 50 164 10Z" fill="#2C59B8" opacity=".42"/></g><line x1="30" y1="10" x2="190" y2="10" stroke="#6B4122" stroke-width="4"/></svg><figcaption><h3 style="margin:0 0 4px;font:700 1.2rem var(--cond)">Trubkové záhyby</h3><p style="margin:0">Látka volně visí z tyče nebo hrany. Svislé „trubky“ střídají světlo a stín jako řada válců.</p></figcaption></figure>
+        <figure class="card reveal" style="margin:0"><svg viewBox="0 0 220 150" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="220" height="150" fill="#FBF8F1"/><g filter="url(#wc)"><path d="M110 12 L30 140 H190Z" fill="#D93A2B" opacity=".2"/><path d="M110 12 L60 140 H85Z" fill="#8E2A2A" opacity=".35"/><path d="M110 12 L115 140 H140Z" fill="#8E2A2A" opacity=".3"/><path d="M110 12 L160 140 H178Z" fill="#8E2A2A" opacity=".25"/></g><circle cx="110" cy="12" r="5" fill="#23272D"/></svg><figcaption><h3 style="margin:0 0 4px;font:700 1.2rem var(--cond)">Záhyby z jednoho bodu</h3><p style="margin:0">Látka zavěšená v jediném bodě. Záhyby se od něj rozbíhají jako paprsky a dole se rozšiřují.</p></figcaption></figure>
+        <figure class="card reveal" style="margin:0"><svg viewBox="0 0 220 150" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="220" height="150" fill="#FBF8F1"/><g filter="url(#wc)"><path d="M20 20 C70 120 150 120 200 20 C150 70 70 70 20 20Z" fill="#23824B" opacity=".3"/><path d="M20 20 C60 100 160 100 200 20 C150 50 70 50 20 20Z" fill="#23824B" opacity=".25"/><path d="M40 40 C80 95 140 95 180 40" stroke="#1B5B33" stroke-width="5" fill="none" opacity=".4"/></g><circle cx="20" cy="20" r="5" fill="#23272D"/><circle cx="200" cy="20" r="5" fill="#23272D"/></svg><figcaption><h3 style="margin:0 0 4px;font:700 1.2rem var(--cond)">Kolébka</h3><p style="margin:0">Látka zavěšená mezi dvěma body se prověsí do oblouků. Nejhlubší záhyb je uprostřed.</p></figcaption></figure>
+        <figure class="card reveal" style="margin:0"><svg viewBox="0 0 220 150" style="width:100%;height:auto;margin-bottom:10px" aria-hidden="true"><rect width="220" height="150" fill="#FBF8F1"/><g filter="url(#wc)"><path d="M10 120 L60 90 L90 110 L130 80 L170 105 L210 95 V140 H10Z" fill="#C48A35" opacity=".35"/><path d="M60 90 L75 140 H95 L90 110Z M130 80 L140 140 H160 L170 105Z" fill="#6B4122" opacity=".35"/></g></svg><figcaption><h3 style="margin:0 0 4px;font:700 1.2rem var(--cond)">Lomené záhyby</h3><p style="margin:0">Látka ležící na podložce se láme do ostrých hran. Těžší látka = méně a měkčích záhybů.</p></figcaption></figure>
+      </div>
+      <div class="cols-2" style="margin-top:clamp(26px,4vw,44px)">
+        <div class="prose reveal">
+          <h3>Postup malby draperie</h3>
+          <ol class="steps">
+            <li>Lehce zakreslete <b>body napětí</b> a hlavní záhyby – jen pár dlouhých linií.</li>
+            <li>Celou látku namalujte <b>světlou lazurou</b> lokální barvy, nejsvětlejší hřbety záhybů vynechejte.</li>
+            <li>Mokré do mokrého položte <b>měkké přechody</b> na oblých záhybech.</li>
+            <li>Po zaschnutí <b>ostré stíny</b> v hlubokých lomech a vržené stíny záhybů.</li>
+            <li>Vzor látky (pruhy, kostky) veďte <b>po tvaru záhybu</b> – v lomu se vzor zalomí.</li>
+          </ol>
+        </div>
+        <div class="prose reveal" id="zatisi-chyby">
+          <h3>Časté chyby</h3>
+          <div class="tip chyba"><b>Všechny záhyby stejné</b>Pravidelné „vlnky“ působí uměle. Střídejte velké a malé záhyby, ostré a měkké okraje.</div>
+          <div class="tip chyba"><b>Stín z černé</b>Zešedlé stíny zabijí barvu látky. Stín namíchejte z lokální barvy a doplňkové barvy.</div>
+          <div class="tip chyba"><b>Tělesa „plavou“</b>Bez tmavého dotykového stínu pod tělesem nestojí předmět na podložce. Tenká tmavá linka v místě dotyku ho „přilepí“.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="zatisi-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Obrazové ukázky</span>Zátiší v barvě</h2><p>Sklo, ovoce, mušle, nádoby. Sledujte barevné stíny a reflexy. Ukázky jsou malované různými technikami – akvarelem, pastelkami i krycími barvami.</p></div>
+      <div class="gallery" data-gallery="zatisi"></div>
+    </div>
+  </section>
+  <section class="section" id="zatisi-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Zátiší a látka</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="zatisi"></div>
+    </div>
+  </section>
+  <section class="section" id="zatisi-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="zatisi"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 4 PORTRÉT =========================== -->
+<section class="panel" id="portret" data-etapa="4" data-nazev="Portrét" aria-label="Etapa 4 – Malba portrétu">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 04 / 11</span><span class="blok">Blok 2 · Portrét, figura, anatomie člověka</span></span>
+    <h1>Malba portrétu</h1>
+    <p class="lead">Proporce hlavy, oči v polovině výšky, stavba nosu a úst – to vše znáte z kresby v prvním ročníku. V malbě přibývá barva pleti, která není jedna: na čele je žlutavější, na tvářích, nose a uších červenější, ve stínech chladnější. Akvarel vás naučí obličej vystihnout několika odvážnými vrstvami.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Malba portrétu (podle předlohy nebo fotografie)</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#portret-barvy">Barvy obličeje</a><a href="#portret-ukazka">Ukázka postupu</a><a href="#portret-plet">Míchání pleti</a><a href="#portret-postup">Postup</a><a href="#portret-ukazky">Předlohy</a><a href="#portret-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="portret-barvy">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Tři barevné zóny obličeje</h3>
+        <p>Obličej si rozdělte vodorovně na třetiny – od vlasů k obočí, od obočí ke spodku nosu a od nosu k bradě. Každá třetina má trochu jinou barvu:</p>
+        <ul>
+          <li><b>Čelo</b> – světlejší, <span class="term">žlutavé až okrové</span> (kost je blízko pod kůží).</li>
+          <li><b>Střed</b> – tváře, nos a uši jsou nejvíc prokrvené, <span class="term">teplé červenavé</span>.</li>
+          <li><b>Spodní třetina</b> – brada a čelist, <span class="term">chladnější</span>, u mužů namodralá nebo nazelenalá.</li>
+        </ul>
+        <h3>Světlo a stín na obličeji</h3>
+        <p>Hlava je soustava ploch: čelo, boky nosu, lícní kosti, brada. Plochy otočené ke světlu jsou nejsvětlejší, odvrácené tvoří stín. Nejtmavší místa jsou obvykle oční důlky, spodní strana nosu, koutky úst a stín pod bradou na krku.</p>
+        <div class="tip"><b>Vlasy jako celek</b>Vlasy nemalujte po jednom. Namalujte je jako jeden velký tvar se světlou a stínovou stranou, a teprve nakonec přidejte pár tahů špičkou štětce.</div>
+      </div>
+      <figure class="card reveal" style="margin:0">
+        <svg viewBox="0 0 300 360" style="width:100%;height:auto" role="img" aria-label="Schéma hlavy rozdělené na tři barevné zóny">
+          <rect width="300" height="360" fill="#FBF8F1"/>
+          <g filter="url(#wc)">
+            <path d="M150 34 C95 34 70 80 72 135 C74 205 100 270 150 300 C200 270 226 205 228 135 C230 80 205 34 150 34Z" fill="#F1C9A5" opacity=".55"/>
+            <path d="M80 70 C100 40 200 40 220 70 L224 125 H76Z" fill="#E7C46E" opacity=".38"/>
+            <path d="M76 125 H224 L218 200 H82Z" fill="#E07A62" opacity=".32"/>
+            <path d="M82 200 H218 C205 255 185 282 150 300 C115 282 95 255 82 200Z" fill="#8F9BC0" opacity=".33"/>
+          </g>
+          <path d="M150 34 C95 34 70 80 72 135 C74 205 100 270 150 300 C200 270 226 205 228 135 C230 80 205 34 150 34Z" fill="none" stroke="#23272D" stroke-width="2"/>
+          <g stroke="#5B9BB5" stroke-dasharray="4 4"><line x1="40" y1="125" x2="260" y2="125"/><line x1="40" y1="200" x2="260" y2="200"/><line x1="40" y1="167" x2="260" y2="167" stroke="#B4532A"/></g>
+          <g fill="none" stroke="#23272D" stroke-width="1.6" stroke-linecap="round"><path d="M110 165 q12 -8 24 0 M166 165 q12 -8 24 0"/><path d="M150 170 v34 q-8 6 -14 2 M150 204 q8 6 14 2"/><path d="M128 236 q22 10 44 0"/></g>
+          <g style="font:600 17px Caveat,cursive;fill:#23272D"><text x="232" y="98">žlutavá</text><text x="232" y="170">červenavá</text><text x="232" y="250">chladnější</text><text x="14" y="163" style="fill:#B4532A">oči = ½</text></g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="portret-ukazka">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Ukázka vyučujícího</span>Portrét ve čtyřech fázích</h2>
+        <p>Malba dívčí hlavy omezenou paletou – okr, sépie a studená šedá. Procházejte jednotlivé fáze tlačítky nebo tečkami.</p>
+      </div>
+      <div class="stepper reveal" data-stepper='[{"img":"img/portret/demo-01.webp","nadpis":"Podmalba v jedné barvě","text":"Celý portrét je nejdřív namalovaný jedinou teplou okrovou až sépiovou barvou. Řeší se jen tvar a rozložení světla a stínu – jako tónová skica."},{"img":"img/portret/demo-02.webp","nadpis":"Zesílení stínů a vlasů","text":"Přes zaschlou vrstvu se lazurou prohlubují stíny: oční důlky, pod nosem, pod bradou, tmavá masa vlasů. Světla na čele a tvářích zůstávají."},{"img":"img/portret/demo-03.webp","nadpis":"Studené pozadí","text":"Šedomodré pozadí je doplňkem k teplé pleti. Díky kontrastu teplé a studené obličej vystoupí dopředu a působí živě."},{"img":"img/portret/demo-04.webp","nadpis":"Světla, oči a detaily","text":"Nakonec drobné tmavé akcenty – zornice, linie víček, koutky úst – a nejsvětlejší místa. Detaily jen tam, kam se má divák dívat."}]'>
+        <div class="st-img"><img src="img/portret/demo-01.webp" alt="" width="400" height="381"></div>
+        <div class="st-side">
+          <h3>Postup malby portrétu</h3>
+          <div class="dots"></div>
+          <div class="st-text" aria-live="polite"></div>
+          <div class="k-ctrl" style="margin-top:auto"><button type="button" data-st="-1">← Předchozí</button><button type="button" data-st="1">Další →</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portret-plet">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Laboratoř míchání</span>Tělové barvy z vodovek</h2>
+        <p>Tělovou barvu ve vodovkách nenajdete – namícháte ji. Vyberte recept nebo posouvejte jezdce. Všimněte si, jak kapka modré ztlumí pleť do stínu.</p>
+      </div>
+      <div class="lab reveal" id="lab-plet">
+        <div class="lab-head"><h3>Míchání pleťových tónů</h3><span class="hint">simulace</span></div>
+        <div class="lab-body wide">
+          <div class="lab-stage" style="padding:22px;min-height:0;display:flex;flex-direction:column;gap:16px;justify-content:center">
+            <div class="mix-result"><div class="blob" id="plet-blob" style="width:150px;height:110px"></div><p id="plet-popis" style="flex:1 1 240px;margin:0"></p></div>
+            <div class="recipe" id="plet-recepty"></div>
+          </div>
+          <div class="lab-ctrl">
+            <label><span>Okr <output id="o-plet-okr"></output></span><input type="range" id="r-plet-okr" min="0" max="1" step="0.01" value="0.5"></label>
+            <label><span>Rumělka (červená) <output id="o-plet-cerv"></output></span><input type="range" id="r-plet-cerv" min="0" max="1" step="0.01" value="0.35"></label>
+            <label><span>Karmín <output id="o-plet-karm"></output></span><input type="range" id="r-plet-karm" min="0" max="1" step="0.01" value="0"></label>
+            <label><span>Ultramarín <output id="o-plet-modr"></output></span><input type="range" id="r-plet-modr" min="0" max="1" step="0.01" value="0"></label>
+            <label><span>Voda <output id="o-plet-voda"></output></span><input type="range" id="r-plet-voda" min="0" max="0.95" step="0.01" value="0.8"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portret-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání · 6 hodin</span>
+        <h3>Portrét akvarelem nebo vodovkami</h3>
+        <ol class="steps">
+          <li><b>Kresba</b> – osa obličeje, linie očí v polovině hlavy, nos, ústa, vlasy jako tvar. Lehce!</li>
+          <li><b>První lazura pleti</b> přes celý obličej i krk, kromě nejsvětlejších míst (odlesk na čele, nosu, v očích).</li>
+          <li><b>Barevné zóny</b> mokré do mokrého: teplejší tváře a nos, chladnější brada a spánky.</li>
+          <li>Po zaschnutí <b>stíny</b> – oční důlky, boční plocha nosu, pod rty, pod bradou.</li>
+          <li><b>Vlasy</b> jako jeden tvar, okraje u obličeje měkké, ztrácené do pozadí.</li>
+          <li><b>Akcenty</b> – zornice, linie víček, nosní dírky, koutky úst. Méně je víc.</li>
+          <li><b>Pozadí</b> – stačí pár volných skvrn doplňkové barvy u obličeje.</li>
+        </ol>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Na co si dát pozor</span>
+        <h3>Nejčastější chyby</h3>
+        <div class="tip chyba"><b>Obrys kolem obličeje</b>Tmavá čára kolem tváře působí jako omalovánka. Tvar obličeje vymezte tónem pozadí nebo stínem, ne linkou.</div>
+        <div class="tip chyba"><b>Přemalovaná pleť</b>Každá další vrstva pleť kalí. Lepší jsou dvě až tři odvážné vrstvy než deset opatrných.</div>
+        <div class="tip chyba"><b>Oči příliš vysoko</b>Oči leží v polovině výšky hlavy. Kontrolujte proporce už v kresbě – malbou je neopravíte.</div>
+        <div class="tip"><b>Fotografie spolužáků</b>Fotografie, podle kterých malujete portrét, najdete ve sdílené složce na OneDrive. Na veřejný web je z ohledu na soukromí nedáváme.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="portret-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Předlohy a inspirace</span>Akvarelové portréty</h2><p>Volná, „rozpitá“ malba – pleť v několika vrstvách, vlasy a oblečení se ztrácejí do bílého papíru. Ve sdílené složce jsou tyto předlohy připravené k tisku.</p></div>
+      <div class="gallery" data-gallery="portret" data-except="demo-"></div>
+    </div>
+  </section>
+  <section class="section" id="portret-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Portrét a pleť</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="portret"></div>
+    </div>
+  </section>
+  <section class="section" id="portret-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="portret"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 5 FIGURA =========================== -->
+<section class="panel" id="figura" data-etapa="5" data-nazev="Figura" aria-label="Etapa 5 – Malba figury">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 05 / 11</span><span class="blok">Blok 2 · Portrét, figura, anatomie člověka</span></span>
+    <h1>Malba figury</h1>
+    <p class="lead">Postava v malbě nepotřebuje každý prst. Potřebuje správné proporce, přesvědčivý postoj a světlo. Začnete gestem – jedinou linií pohybu – a postavu postavíte z několika barevných skvrn. Detaily přijdou na řadu až nakonec, pokud vůbec.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Malba figury (podle modelu, fotografie nebo předlohy)</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#figura-teorie">Kánon a gesto</a><a href="#figura-lab">Interaktivní kánon</a><a href="#figura-postup">Postup</a><a href="#figura-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="figura-teorie">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Kánon lidské postavy</h3>
+        <p><span class="term">Kánon</span> je soustava proporcí vyjádřená počtem výšek hlavy. Dospělý člověk měří zhruba <b>7,5 hlavy</b>, akademický kánon počítá s <b>8 hlavami</b>. Polovina výšky leží v rozkroku, ramena jsou asi dvě hlavy široká, konečky prstů svěšených rukou sahají do poloviny stehen.</p>
+        <h3>Gesto a kontrapost</h3>
+        <ul>
+          <li><span class="term">Gesto</span> – jedna dynamická křivka (tvar C nebo S), která vystihne postoj celého těla. Malujte ji prvním tahem.</li>
+          <li><span class="term">Kontrapost</span> – postoj s vahou na jedné noze. Pánev se nakloní, ramena jdou na opačnou stranu, těžiště leží nad opěrnou nohou.</li>
+          <li><span class="term">Silueta</span> – postava čitelná jako jednolitá skvrna. Mezery mezi rukama a tělem pomáhají pochopit pózu.</li>
+        </ul>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Figura v malbě</span>
+        <h3>Malujte skvrnami, ne linkami</h3>
+        <p>V akvarelu je postava souborem skvrn: hlava, trup, nohy a stín pod nimi. Malé postavy v krajině stačí naznačit jediným tahem – hlava jako tečka, tělo jako protáhlá skvrna zužující se k nohám, a pod ní kousek stínu.</p>
+        <div class="tip"><b>Figurální skicování do deníku</b>Malujte postavy kolem sebe – v autobuse, na chodbě, doma. Pět minut na jednu postavu, jen velké skvrny. Za měsíc uvidíte obrovský rozdíl.</div>
+        <div class="tip"><b>Inspirace</b>Nástěnka <a href="https://cz.pinterest.com/jarsvobodajs/figur%C3%A1ln%C3%AD-kresba-a-malba/" target="_blank" rel="noopener">Figurální kresba a malba ↗</a> na Pinterestu. Na pózování postavy se hodí 3D panák <a href="https://app.justsketch.me/" target="_blank" rel="noopener">JustSketchMe ↗</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="figura-lab">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní kánon</span>Kolik hlav měří postava?</h2>
+        <p>Měňte počet výšek hlavy a sledujte, jak se mění charakter postavy – od dítěte po superhrdinu. Zapněte kontrapost a uvidíte naklopení pánve a ramen.</p>
+      </div>
+      <div class="lab reveal figure-lab">
+        <div class="lab-head"><h3>Proporce postavy</h3><span class="hint">posuňte jezdec</span></div>
+        <div class="lab-body">
+          <div class="lab-stage" style="display:grid;place-items:center;padding:14px;min-height:0"><svg id="svg-kanon" viewBox="0 0 440 500" style="width:100%;height:auto" role="img" aria-label="Schéma postavy rozdělené na výšky hlavy"></svg></div>
+          <div class="lab-ctrl">
+            <label><span>Výška postavy <output id="o-kanon"></output></span><input type="range" id="r-kanon" min="5" max="9" step="0.5" value="8"></label>
+            <label class="check"><input type="checkbox" id="c-kontrapost">Kontrapost (váha na jedné noze)</label>
+            <div class="readout" id="kanon-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="figura-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání · 6 hodin</span>
+        <h3>Malba stojící nebo sedící figury</h3>
+        <ol class="steps">
+          <li><b>Gesto</b> – jedna křivka pohybu, výška postavy a umístění na formátu.</li>
+          <li><b>Proporce</b> – rozměřte výšky hlav, osu ramen a pánve.</li>
+          <li><b>Velké skvrny</b> světlou lazurou: pleť, oblečení, vlasy. Zatím bez detailů.</li>
+          <li><b>Stínová strana</b> celé postavy jedním tónem – sjednotí objem.</li>
+          <li><b>Vržený stín</b> na podlahu – postava pak stojí, ne visí ve vzduchu.</li>
+          <li><b>Akcenty</b> – hlava, ruce, záhyby oblečení u kloubů. Okraje u světla ostré, ve stínu ztracené.</li>
+        </ol>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Na co si dát pozor</span>
+        <h3>Nejčastější chyby</h3>
+        <div class="tip chyba"><b>Strnulá postava</b>Všechno svislé a souměrné působí jako panák. Hledejte naklonění ramen a pánve a křivku páteře.</div>
+        <div class="tip chyba"><b>Malá chodidla a ruce</b>Chodidlo je dlouhé asi jako výška hlavy, dlaň zakryje obličej. Začátečníci je kreslí výrazně menší.</div>
+        <div class="tip chyba"><b>Postava ořízlá formátem</b>Plánujte umístění – hlavu ani nohy nenechte narazit na okraj papíru, pokud to není záměr.</div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="figura-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Postavy akvarelem</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="figura"></div>
+    </div>
+  </section>
+  <section class="section" id="figura-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="figura"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 6 KOMPOZICE =========================== -->
+<section class="panel" id="kompozice" data-etapa="6" data-nazev="Kompozice a krajina" aria-label="Etapa 6 – Kompoziční malířské cvičení">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 06 / 11</span><span class="blok">Blok 2 · Další témata</span></span>
+    <h1>Kompoziční malířské cvičení</h1>
+    <p class="lead">Kompozice je rozvržení obrazu – co je hlavní, kam se divák podívá nejdřív a jak jeho oko obrazem putuje. Krajina je pro kompoziční cvičení ideální: obloha, stromy, voda a cesta se dají přeskládat téměř libovolně. Než začnete malovat, vyzkoušejte si výřez v kompozičním hledáčku.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Kompoziční malířské cvičení (krajina, město, vlastní námět)</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#kompozice-pravidla">Pravidla kompozice</a><a href="#kompozice-lab">Kompoziční hledáček</a><a href="#kompozice-motivy">Obloha, stromy, voda</a><a href="#kompozice-postup">Postup</a><a href="#kompozice-ukazky">Ukázky</a><a href="#kompozice-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="kompozice-pravidla">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Teorie</span>Šest nástrojů kompozice</h2>
+        <p>Nejsou to zákony, ale osvědčené postupy. Když je porušíte, dělejte to záměrně.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal"><h3>Formát</h3><p>Na výšku podporuje vertikály – stromy, vodopád, postavu. Na šířku klid a rozlehlost – krajinu, horizont. Rozhodněte se dřív, než začnete.</p></div>
+        <div class="card reveal"><h3>Dominanta</h3><p>Jedno hlavní místo, které upoutá jako první – největší kontrast tónu, barvy nebo ostrosti. Všechno ostatní mu slouží.</p></div>
+        <div class="card reveal"><h3>Třetiny a zlatý řez</h3><p>Horizont ani hlavní motiv nedávejte přesně doprostřed. Umístěte je na linii nebo průsečík třetin – obraz bude živější.</p></div>
+        <div class="card reveal"><h3>Plány</h3><p>Popředí, střední plán a pozadí. Každý plán má jiný tón a ostrost. Tmavé popředí jako „rám“ zvýrazní světlou hloubku.</p></div>
+        <div class="card reveal"><h3>Vedení pohledu</h3><p>Cesta, řeka, plot nebo diagonála kmene vedou oko do obrazu. Nemiřte jimi ven z formátu.</p></div>
+        <div class="card reveal"><h3>Tónová skica</h3><p>Před malbou udělejte tři až čtyři malé skici (5 × 7 cm) jen ve třech tónech. Zjistíte, která kompozice funguje.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kompozice-lab">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní nástroj</span>Kompoziční hledáček</h2>
+        <p>Vyberte obraz, formát výřezu a pomocnou síť. Tažením posouvejte rámeček a hledejte výřez, kde hlavní motiv sedí na průsečíku. Stejně funguje papírový hledáček – okénko vystřižené z kartonu.</p>
+      </div>
+      <div class="lab reveal">
+        <div class="lab-head"><h3>Hledání výřezu</h3><span class="hint">táhněte rámeček</span></div>
+        <div class="lab-body">
+          <div class="lab-stage" style="min-height:300px;background:#2B2B2B;cursor:move"><canvas id="cv-hled" aria-label="Obraz s kompozičním rámečkem"></canvas></div>
+          <div class="lab-ctrl">
+            <label><span>Obraz</span><select id="hled-obr" style="font:500 15px var(--font);padding:8px;border:1.5px solid var(--line);border-radius:6px"></select></label>
+            <div class="seg" role="group" aria-label="Pomocná síť" style="display:grid;grid-template-columns:1fr 1fr">
+              <button type="button" data-sit="tretiny" aria-pressed="true">Třetiny</button><button type="button" data-sit="zlaty" aria-pressed="false">Zlatý řez</button>
+              <button type="button" data-sit="diagonaly" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">Diagonály</button><button type="button" data-sit="stred" aria-pressed="false" style="border-top:1.5px solid var(--ink)">Střed</button>
+            </div>
+            <div class="seg" role="group" aria-label="Formát výřezu" style="display:grid;grid-template-columns:1fr 1fr">
+              <button type="button" data-pomer="orig" aria-pressed="true">Celý obraz</button><button type="button" data-pomer="ctverec" aria-pressed="false">Čtverec</button>
+              <button type="button" data-pomer="vysku" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">A3 na výšku</button><button type="button" data-pomer="sirku" aria-pressed="false" style="border-top:1.5px solid var(--ink)">A3 na šířku</button>
+            </div>
+            <label><span>Velikost výřezu</span><input type="range" id="r-hled-vel" min="0.35" max="1" step="0.01" value="0.8"></label>
+            <div class="readout" id="hled-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kompozice-motivy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Motivy krajiny</span>Obloha, stromy, voda</h2>
+        <p>Tři prvky, ze kterých poskládáte většinu krajin. Každý má svůj osvědčený postup.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal"><h3>Obloha</h3><ul><li>Malujte ji <b>první</b> a najednou, mokré do mokrého.</li><li>Nahoře sytější, k horizontu světlejší a teplejší.</li><li>Mraky nechte jako bílý papír nebo je vytřete savým papírem.</li></ul></div>
+        <div class="card reveal"><h3>Stromy</h3><ul><li>Koruna je <b>jeden tvar</b> se světlou a stínovou stranou, ne tisíc lístků.</li><li>Okraj koruny rozbijte suchým štětcem, mezi listy nechte „okna“ oblohy.</li><li>Vzdálené stromy modřejší a světlejší, blízké teplé a kontrastní.</li></ul></div>
+        <div class="card reveal"><h3>Voda</h3><ul><li>Hladina zrcadlí oblohu a okolí – odraz je <b>svislý</b> a o něco tmavší.</li><li>Vodorovné tahy a světlé pruhy vynechaného papíru naznačí lesk.</li><li>Odraz malujte mokré do mokrého, pak ho „rozřízněte“ světlou linkou.</li></ul></div>
+      </div>
+      <div class="gallery reveal" data-gallery="akvarel" data-only="mraky|strom|jehlicnate|listnate" style="margin-top:24px"></div>
+    </div>
+  </section>
+
+  <section class="section" id="kompozice-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání · 6 hodin</span>
+        <h3>Kompoziční malířské cvičení</h3>
+        <p>Namalujte krajinu (nebo městské zákoutí) na formát A3. Podkladem může být fotografie, předloha ze sdílené složky nebo skica z plenéru. Hodnotí se kompozice, práce s plány a vzdušnou perspektivou a zvládnutí akvarelových technik.</p>
+        <ol class="steps">
+          <li>Tři až čtyři <b>tónové skici</b> do skicáku, vyberte nejlepší.</li>
+          <li>Kresba hlavních linií – horizont, cesty, siluety stromů.</li>
+          <li><b>Obloha a první lazura</b> celé plochy mokré do mokrého.</li>
+          <li><b>Pozadí</b> – světlé a studené, měkké okraje.</li>
+          <li><b>Střední plán</b> – výraznější barva, ostřejší tvary.</li>
+          <li><b>Popředí</b> – nejtmavší a nejteplejší tóny, detaily, akcenty.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <svg viewBox="0 0 400 300" style="width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#FBF8F1" role="img" aria-label="Schéma tří plánů krajiny: světlé studené pozadí, střední plán, tmavé teplé popředí">
+          <g filter="url(#wc2)">
+            <rect width="400" height="180" fill="#9AB0DA" opacity=".4"/>
+            <path d="M0 150 C80 110 140 125 200 135 C260 105 330 110 400 130 V300 H0Z" fill="#A9B7D6" opacity=".7"/>
+            <path d="M0 190 C90 160 170 175 240 180 C300 165 360 170 400 175 V300 H0Z" fill="#7DB443" opacity=".55"/>
+            <path d="M0 240 C100 225 200 235 400 228 V300 H0Z" fill="#3E6B2A" opacity=".75"/>
+          </g>
+          <g filter="url(#wc)"><path d="M300 240 C305 170 320 120 340 60 C350 110 360 170 362 240Z" fill="#2B4A23" opacity=".8"/><path d="M40 245 C44 200 56 170 70 140 C78 175 84 210 86 245Z" fill="#2B4A23" opacity=".75"/></g>
+          <path d="M150 300 C170 260 190 230 205 185" stroke="#E6B98A" stroke-width="16" fill="none" opacity=".75" filter="url(#wc)"/>
+          <g style="font:600 18px Caveat,cursive;fill:#23272D"><text x="230" y="118">pozadí – světlé, studené</text><text x="150" y="178">střední plán</text><text x="10" y="290" style="fill:#fff">popředí – tmavé, teplé, ostré</text></g>
+          <g stroke="#B4532A" stroke-dasharray="4 4" opacity=".7"><line x1="133" y1="0" x2="133" y2="300"/><line x1="267" y1="0" x2="267" y2="300"/><line x1="0" y1="100" x2="400" y2="100"/><line x1="0" y1="200" x2="400" y2="200"/></g>
+        </svg>
+        <div class="tip"><b>Plenér</b>Za dobrého počasí malujte venku. Malý skicák, vodovky, štětec a lahev vody – skica do 20 minut naučí víc než hodina u fotografie.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kompozice-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Obrazové ukázky</span>Akvarelové krajiny</h2><p>Sledujte umístění horizontu, kontrast plánů a to, kudy vás obraz vede. Další inspiraci najdete na nástěnce <a href="https://cz.pinterest.com/jarsvobodajs/malba-krajiny/" target="_blank" rel="noopener">Malba krajiny ↗</a>.</p></div>
+      <div class="gallery" data-gallery="kompozice"></div>
+    </div>
+  </section>
+  <section class="section" id="kompozice-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Krajina a kompozice</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="kompozice"></div>
+    </div>
+  </section>
+  <section class="section" id="kompozice-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Teorii budete potřebovat v pololetním testu.</p></div><div class="quiz" data-quiz="kompozice"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 7 DIGITÁLNÍ PRACOVIŠTĚ =========================== -->
+<section class="panel" id="digital" data-etapa="7" data-nazev="Tablet, A3 a export CMYK" aria-label="Etapa 7 – Digitální pracoviště: tablety, nastavení plátna a export pro tisk">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 07 / 11</span><span class="blok">Blok 3 · Digitální malba</span></span>
+    <h1>Tablet, plátno A3 a&nbsp;export pro tisk</h1>
+    <p class="lead">Ke konci prvního pololetí odkládáte štětec a berete do ruky pero. Malujete ve <b>Sketchbooku</b> na školních tabletech Samsung Galaxy, ve <b>Photoshopu</b> se školními tablety Wacom Intuos, nebo na vlastním tabletu. Ať malujete kdekoli, výsledek musí jít vytisknout: <b>formát A3, rozlišení 300 DPI, JPEG v barevném režimu CMYK s profilem Coated FOGRA39.</b> Tady je návod krok za krokem.</p>
+    <ul class="zadani">
+      <li><b>A3</b>297 × 420 mm</li>
+      <li><b>300 DPI</b>3508 × 4961 px</li>
+      <li><b>CMYK</b>Coated FOGRA39 (ISO 12647-2:2004)</li>
+      <li><b>JPEG</b>kvalita 12, základní (standardní)</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#digital-tablety">Tablety</a><a href="#digital-wacom">Nastavení Wacom</a><a href="#digital-kalk">Kalkulačka rozlišení</a><a href="#digital-navody">Návody A3 a CMYK</a><a href="#digital-cmyk">RGB × CMYK</a><a href="#digital-zaklady">Základy digitální malby</a><a href="#digital-odevzdani">Odevzdání</a><a href="#digital-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="digital-tablety">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Vybavení</span>Na čem budete malovat</h2>
+        <p>Tablety zapůjčuje škola. Vlastní tablet je dobrovolný – pokud ho máte, můžete s ním pracovat ve škole i doma.</p>
+      </div>
+      <div class="devices">
+        <div class="device reveal">
+          <svg viewBox="0 0 200 120" aria-hidden="true"><rect x="40" y="8" width="120" height="104" rx="10" fill="#23272D"/><rect x="48" y="16" width="104" height="88" rx="4" fill="#BFD9F2"/><path d="M48 70 C80 52 110 60 152 56 V104 H48Z" fill="#7DB443"/><rect x="150" y="30" width="6" height="74" rx="3" fill="#5B9BB5" transform="rotate(28 153 67)"/></svg>
+          <span class="badge">škola</span>
+          <h3>Samsung Galaxy Tab + Sketchbook</h3>
+          <p>Tablet s displejem a perem S Pen. Malujete přímo do obrazu v aplikaci <b>Sketchbook</b> – štětce, vrstvy, perspektivní vodítka, symetrie.</p>
+          <ul><li>Plátno nastavíte v pixelech: <b>3508 × 4961</b>.</li><li>Sketchbook neumí CMYK – finální JPEG se uloží ve Photoshopu.</li></ul>
+          <a href="#digital-navody" data-open-tab="tab-sb">Návod pro Sketchbook →</a>
+        </div>
+        <div class="device reveal">
+          <svg viewBox="0 0 200 120" aria-hidden="true"><rect x="70" y="6" width="96" height="62" rx="4" fill="#23272D"/><rect x="75" y="11" width="86" height="52" fill="#3B4048"/><rect x="80" y="16" width="76" height="42" fill="#fff"/><path d="M80 44 C100 34 120 40 156 36 V58 H80Z" fill="#9AB0DA"/><rect x="110" y="68" width="16" height="10" fill="#23272D"/><rect x="18" y="80" width="110" height="34" rx="6" fill="#3B4048"/><rect x="28" y="86" width="90" height="22" rx="3" fill="#585E66"/><rect x="132" y="70" width="5" height="46" rx="2.5" fill="#23272D" transform="rotate(35 134 93)"/></svg>
+          <span class="badge">škola</span>
+          <h3>Wacom Intuos + Photoshop</h3>
+          <p>Tablet bez displeje připojený k počítači. Kreslíte na plochu tabletu a díváte se na monitor. V <b>Photoshopu</b> nastavíte vše včetně převodu do CMYK.</p>
+          <ul><li>Počítač musí mít nainstalovaný ovladač Wacom.</li><li>Zvykání trvá pár hodin – pak je to přirozené.</li></ul>
+          <a href="#digital-navody" data-open-tab="tab-ps">Návod pro Photoshop →</a>
+        </div>
+        <div class="device reveal">
+          <svg viewBox="0 0 200 120" aria-hidden="true"><rect x="30" y="14" width="140" height="92" rx="10" fill="#585E66"/><rect x="40" y="22" width="120" height="76" rx="4" fill="#F1DDD0"/><circle cx="80" cy="56" r="18" fill="#B4532A" opacity=".7"/><circle cx="104" cy="62" r="16" fill="#38C4F0" opacity=".6"/><rect x="146" y="40" width="6" height="64" rx="3" fill="#23272D" transform="rotate(25 149 72)"/></svg>
+          <span class="badge light">dobrovolně</span>
+          <h3>Vlastní tablet</h3>
+          <p>Wacom, XP-Pen, Huion s počítačem, nebo iPad či Android tablet s perem. Programy: Photoshop, Krita, GIMP, Procreate, Sketchbook a další.</p>
+          <ul><li>Nastavte plátno 3508 × 4961 px / A3 300 DPI.</li><li>Finální CMYK JPEG ověřte ve Photoshopu.</li></ul>
+          <a href="#digital-navody" data-open-tab="tab-vl">Návod pro vlastní tablet →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-wacom">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Návod vyučujícího</span>
+        <h3>Práce s tabletem Wacom Intuos</h3>
+        <ol class="steps">
+          <li><b>Nejdřív ovladač, pak tablet.</b> Než tablet připojíte, stáhněte a nainstalujte ovladač <a href="https://spsecz-my.sharepoint.com/:u:/g/personal/svoboda_spse_cz/EWFSWu0-52VKry6263c00GUBySWCNY6ghdTuIsrzd_J2_Q?e=EQ0OzT" target="_blank" rel="noopener">WacomTablet_6.3.36-1.exe</a> (školní OneDrive).</li>
+          <li><b>Restartujte počítač.</b></li>
+          <li>Teprve po restartu <b>připojte tablet</b> – má jen jeden kabel, není co splést.</li>
+          <li>Na připojeném tabletu vlevo nahoře <b>vypněte snímání dotyků prstů</b>, aby tablet reagoval jen na pero.</li>
+          <li>Podívejte se na instruktážní videa ve <a href="#digital-videa">videotutoriálech</a> níže.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <div class="card tint">
+          <h3>Pero = myš</h3>
+          <p>Když držíte pero <b>několik milimetrů nad plochou</b> tabletu, je to stejné, jako když posouváte myší po podložce – pohybuje se kurzor.</p>
+          <p>Když se perem <b>dotknete plochy</b>, je to jako stisknout a držet levé tlačítko myši. V grafickém editoru můžete kreslit, nebo dělat cokoli, co dělá myš.</p>
+          <p>Čím víc perem přitlačíte, tím je tah silnější nebo tmavší – pokud má štětec zapnutý <span class="term">přítlak</span>.</p>
+        </div>
+        <div class="tip"><b>Photoshop nereaguje na přítlak?</b>V panelu štětce zkontrolujte, že je u Velikosti nebo Krytí nastaveno Ovládání: Přítlak pera. Pokud ani pak nefunguje, ovladač nebyl nainstalován před připojením tabletu – opakujte postup vlevo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-kalk">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Rozlišení</span>
+        <h3>Proč 300 DPI a kolik je to pixelů?</h3>
+        <p><span class="term">DPI</span> (dots per inch, ve Photoshopu „obrazové body na palec“) říká, kolik pixelů připadne na 2,54 cm papíru. Pro kvalitní tisk se používá <b>300 DPI</b>. Monitor si s DPI hlavu neláme – zajímá ho jen počet pixelů.</p>
+        <p>Výpočet: <b>milimetry ÷ 25,4 × DPI</b>. Pro A3: 297 ÷ 25,4 × 300 = <b>3508 px</b> a 420 ÷ 25,4 × 300 = <b>4961 px</b>.</p>
+        <div class="tip"><b>Velikost nejde „dopočítat“</b>Obrázek namalovaný v rozlišení 1000 × 1400 px po zvětšení na A3 rozmaže. Plátno proto nastavte správně hned na začátku.</div>
+      </div>
+      <div class="tool reveal" id="kalk">
+        <h3>Kalkulačka rozlišení</h3>
+        <div class="tool-grid">
+          <label>Formát<select id="k-format"><option>A5</option><option>A4</option><option selected>A3</option><option>A2</option><option>B4</option><option value="vlastni">vlastní</option></select></label>
+          <label>Orientace<select id="k-orient"><option value="vysku" selected>na výšku</option><option value="sirku">na šířku</option></select></label>
+          <label>Rozlišení<select id="k-dpi"><option value="72">72 DPI</option><option value="150">150 DPI</option><option value="300" selected>300 DPI</option></select></label>
+        </div>
+        <div class="tool-grid" id="k-vlastni" hidden>
+          <label>Šířka (mm)<input type="number" id="k-w" value="200" min="10" max="2000"></label>
+          <label>Výška (mm)<input type="number" id="k-h" value="300" min="10" max="2000"></label>
+        </div>
+        <label class="check" style="flex-direction:row;align-items:center;gap:10px;font-weight:500"><input type="checkbox" id="k-spad" style="width:18px;height:18px;accent-color:var(--sanguine)">Přidat spadávku 3 mm (jen když to zadání vyžaduje)</label>
+        <div class="big-out" aria-live="polite">
+          <div><small>Plátno v pixelech</small><b id="k-px"></b></div>
+          <div><small>Rozměr</small><b id="k-cm" style="font-size:1.3rem"></b></div>
+          <div><small>Megapixely</small><b id="k-mp"></b></div>
+          <div><small>Kvalita</small><b id="k-kvalita"></b></div>
+          <div><small>Paměť RGB · 8 bitů</small><b id="k-rgb"></b></div>
+          <div><small>Paměť CMYK · 8 bitů</small><b id="k-cmyk"></b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-navody">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Návody krok za krokem</span>Plátno A3 / 300 DPI a JPEG v CMYK FOGRA39</h2>
+        <p>Vyberte program, ve kterém malujete. Názvy nabídek odpovídají české verzi Photoshopu ve škole; anglický název je v závorce.</p>
+      </div>
+      <div class="tabs reveal" id="navody">
+        <div class="tablist" role="tablist" aria-label="Program">
+          <button type="button" role="tab" id="tab-ps" aria-controls="panel-ps" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 16V8h3a2.5 2.5 0 0 1 0 5H8M14.5 15.5c.5.4 1.2.6 1.8.6.9 0 1.5-.4 1.5-1 0-1.4-3.2-.9-3.2-2.6 0-.7.6-1.2 1.6-1.2.6 0 1.1.2 1.5.4"/></svg>Photoshop + Wacom</button>
+          <button type="button" role="tab" id="tab-sb" aria-controls="panel-sb" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 15c2-4 4-5 6-6"/></svg>Sketchbook (Galaxy Tab)</button>
+          <button type="button" role="tab" id="tab-vl" aria-controls="panel-vl" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Vlastní tablet</button>
+        </div>
+
+        <!-- PHOTOSHOP -->
+        <div class="tabpanel" role="tabpanel" id="panel-ps" aria-labelledby="tab-ps">
+          <div class="cols-2">
+            <div class="prose">
+              <h3>A) Nové plátno A3, 300 DPI</h3>
+              <ol class="steps">
+                <li><span class="menu-path">Soubor <i>›</i> Nový…</span> (<kbd>Ctrl</kbd> + <kbd>N</kbd>).</li>
+                <li>Vpravo v podrobnostech přednastavení zvolte jednotky <b>Milimetry</b> a zadejte <b>Šířka 297</b>, <b>Výška 420</b>, orientace na výšku (nebo opačně pro formát na šířku).</li>
+                <li><b>Rozlišení 300</b> obr. bodů/palec.</li>
+                <li><b>Barevný režim: Barvy RGB, 8 bitů.</b> Malujte v RGB – všechny štětce, filtry a režimy prolnutí fungují. Do CMYK převedete hotový obrázek na konci.</li>
+                <li>Obsah pozadí: Bílá → <b>Vytvořit</b>. Tlačítkem pro uložení přednastavení si ho uložte jako „A3 300 DPI“.</li>
+              </ol>
+              <div class="dialog" aria-label="Ukázka dialogu Velikost obrazu">
+                <div class="dt"><span>Velikost obrazu</span><span>×</span></div>
+                <div class="row"><span>Rozměry:</span><b>3508 ob × 4961 ob</b></div>
+                <div class="row"><span>Šířka:</span><b class="hl">29,7 centimetry</b></div>
+                <div class="row"><span>Výška:</span><b class="hl">42 centimetry</b></div>
+                <div class="row"><span>Rozlišení:</span><b class="hl">300 obr. bodů / palec</b></div>
+              </div>
+              <p class="note">Kontrola kdykoli: <span class="menu-path">Obraz <i>›</i> Velikost obrazu…</span> (<kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>I</kbd>). Takto má vypadat správně nastavený A3.</p>
+            </div>
+            <div class="prose">
+              <h3>B) Uložení JPEG v CMYK – Coated FOGRA39</h3>
+              <ol class="steps">
+                <li><b>Jednou na každém počítači:</b> <span class="menu-path">Úpravy <i>›</i> Předvolby <i>›</i> Zpracování souborů</span> a zaškrtněte <b>Povolit starší příkaz Uložit jako</b>. Díky tomu půjde JPEG správně <b>uložit</b> (nikoli exportovat).</li>
+                <li>Uložte si pracovní soubor s vrstvami: <span class="menu-path">Soubor <i>›</i> Uložit jako… <i>›</i> Photoshop (*.PSD)</span>.</li>
+                <li>Převeďte obraz do tiskového profilu: <span class="menu-path">Úpravy <i>›</i> Převést do profilu…</span> (Edit › Convert to Profile).</li>
+                <li>V části <b>Cílový prostor</b> vyberte <b>Profil: Coated FOGRA39 (ISO 12647-2:2004)</b>. Ponechte Modul Adobe (ACE), Reprodukce Relativní kolorimetrická, zaškrtnuté Použít kompenzaci černého bodu a Rozklad barev → <b>OK</b>. Vrstvy se při dotazu sloučí.</li>
+                <li>V záhlaví okna teď musí být <b>(CMYK/8)</b>.</li>
+                <li><span class="menu-path">Soubor <i>›</i> Uložit jako…</span> (<kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>S</kbd>) → Uložit jako typ: <b>JPEG (*.JPG;*.JPEG;*.JPE)</b>. Zaškrtnuté musí zůstat <b>Profil ICC: Coated FOGRA39</b> (vložení profilu).</li>
+                <li>V okně Volby JPEG nastavte <b>Kvalita: 12 – Maximální</b> (jezdec úplně vpravo, „velký soubor“) a Volby formátu <b>Základní (standardní)</b> → OK.</li>
+              </ol>
+              <div class="dialog" aria-label="Ukázka dialogu Převést do profilu">
+                <div class="dt"><span>Převést do profilu</span><span>×</span></div>
+                <div class="row"><span>Cílový prostor – Profil:</span><b class="hl">Coated FOGRA39 (ISO 12647-2:2004)</b></div>
+                <div class="row"><span>Modul:</span><b>Adobe (ACE)</b></div>
+                <div class="row"><span>Reprodukce:</span><b>Relativní kolorimetrická</b></div>
+                <div class="chk">Použít kompenzaci černého bodu</div>
+                <div class="chk">Rozklad barev</div>
+              </div>
+            </div>
+          </div>
+          <div class="cols" style="margin-top:20px">
+            <div class="tip chyba" style="margin:0"><b>Nepoužívejte Exportovat</b><span class="menu-path">Soubor <i>›</i> Exportovat <i>›</i> Rychlý export / Exportovat jako</span> ukládá obrázky pro web v RGB – CMYK a profil FOGRA39 se ztratí. Proto „starší příkaz Uložit jako“.</div>
+            <div class="tip" style="margin:0"><b>Režim CMYK, nebo Převést do profilu?</b>Příkaz <span class="menu-path">Obraz <i>›</i> Režim <i>›</i> Barvy CMYK</span> převádí podle pracovního profilu v Nastavení barev, který na každém počítači může být jiný. Převést do profilu zaručí, že bude použit právě FOGRA39.</div>
+            <div class="tip" style="margin:0"><b>Náhled tisku předem</b><span class="menu-path">Zobrazení <i>›</i> Nastavení náhledu <i>›</i> Pracovní CMYK</span> a <kbd>Ctrl</kbd> + <kbd>Y</kbd> zapne náhled. <kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Y</kbd> ukáže barvy, které tiskárna nevytiskne (upozornění na gamut).</div>
+          </div>
+        </div>
+
+        <!-- SKETCHBOOK -->
+        <div class="tabpanel" role="tabpanel" id="panel-sb" aria-labelledby="tab-sb" hidden>
+          <div class="cols-2">
+            <div class="prose">
+              <h3>A) Nové plátno A3 na tabletu Samsung Galaxy</h3>
+              <p>Sketchbook na tabletu zadává velikost plátna jen v pixelech – DPI se nenastavuje. To nevadí: rozhoduje <b>počet pixelů</b>, rozlišení 300 DPI doplníte ve Photoshopu.</p>
+              <ol class="steps">
+                <li>V galerii Sketchbooku klepněte na ikonu <b>Soubor / Nová skica</b> (New Sketch) a zvolte vlastní velikost.</li>
+                <li>Odemkněte zámek poměru stran (ikona řetězu uprostřed).</li>
+                <li>Zadejte <b>šířku 3508</b> a <b>výšku 4961</b> pixelů. Pro formát na šířku použijte ikonu otočení (4961 × 3508).</li>
+                <li>Klepněte na <b>Vytvořit</b> (Create).</li>
+                <li>Malujte ve vrstvách. Na velkém plátně tablet nabídne méně vrstev – počet závisí na paměti zařízení. Hotové části průběžně slučujte.</li>
+              </ol>
+              <div class="tip"><b>Ukládání během práce</b>Sketchbook ukládá skici do své galerie. Rozpracovaný obrázek si navíc pravidelně exportujte – kdyby se tablet sdílel s jinou třídou, budete mít zálohu.</div>
+            </div>
+            <div class="prose">
+              <h3>B) Z tabletu do Photoshopu a do CMYK</h3>
+              <p>Sketchbook ukládá jen v RGB a neumí profil FOGRA39. Finální JPEG proto vznikne ve Photoshopu na školním počítači.</p>
+              <ol class="steps">
+                <li>V otevřené skice klepněte na <b>Sdílet / Exportovat</b> (Share/Export) → <b>Exportovat do souborů</b> (Export to Files).</li>
+                <li>Zvolte formát <b>PSD</b> (zachová vrstvy) nebo <b>PNG</b> (bez ztráty kvality). JPG ze Sketchbooku jako finální soubor nepoužívejte.</li>
+                <li>Soubor přeneste do počítače – nejlépe přes svůj školní <b>OneDrive</b> nebo USB kabelem.</li>
+                <li>Ve Photoshopu soubor otevřete a dejte <span class="menu-path">Obraz <i>›</i> Velikost obrazu…</span></li>
+                <li><b>Vypněte Převzorkovat</b> a do pole Rozlišení napište <b>300</b>. Šířka a výška se samy změní na <b>29,7 × 42 cm</b> – pixely zůstanou stejné.</li>
+                <li>Dál postupujte podle návodu pro Photoshop, část B: <b>Převést do profilu → Coated FOGRA39 → Uložit jako JPEG, kvalita 12</b>.</li>
+              </ol>
+              <div class="dialog" aria-label="Ukázka dialogu Velikost obrazu s vypnutým převzorkováním">
+                <div class="dt"><span>Velikost obrazu</span><span>×</span></div>
+                <div class="row"><span>Rozměry:</span><b>3508 ob × 4961 ob</b></div>
+                <div class="row"><span>Rozlišení:</span><b class="hl">300 obr. bodů / palec</b></div>
+                <div class="row"><span>Šířka × výška:</span><b>29,7 × 42 cm</b></div>
+                <div class="chk off hl">Převzorkovat</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VLASTNÍ TABLET -->
+        <div class="tabpanel" role="tabpanel" id="panel-vl" aria-labelledby="tab-vl" hidden>
+          <p style="margin-top:0">Ať máte tablet jakýkoli, platí jedno pravidlo: <b>plátno nastavte hned na začátku na 3508 × 4961 px (A3, 300 DPI)</b> a finální JPEG v CMYK FOGRA39 si ověřte nebo uložte ve Photoshopu ve škole. Některé programy CMYK JPEG vůbec neumí.</p>
+          <div class="cols">
+            <div class="card">
+              <h3>Krita (zdarma, Windows / macOS / Linux)</h3>
+              <ul>
+                <li><span class="menu-path">Soubor <i>›</i> Nový</span> → Vlastní dokument → jednotky cm: <b>29,7 × 42</b>, rozlišení <b>300</b> pixelů na palec, barva RGB/Alfa, 8 bitů.</li>
+                <li>Krita neukládá JPEG v CMYK. Uložte <b>.psd</b> nebo <b>.png</b> a dokončete převod ve Photoshopu (návod Photoshop, část B).</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>GIMP 3 (zdarma)</h3>
+              <ul>
+                <li><span class="menu-path">Soubor <i>›</i> Nový</span> → 297 × 420 mm, v pokročilých volbách rozlišení <b>300</b> pixelů/in.</li>
+                <li>Pro CMYK potřebujete soubor profilu Coated FOGRA39 (.icc) – je součástí volně stažitelných profilů Adobe ICC.</li>
+                <li>Profil přiřaďte jako profil pro náhled tisku (Image › Color Management › Assign Soft-Proofing Profile) a při exportu do JPEG zaškrtněte <b>Exportovat jako CMYK</b> (Export as CMYK). Kvalita 100.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>iPad – Procreate</h3>
+              <ul>
+                <li>Galerie → <b>+</b> → vlastní plátno: <b>297 × 420 mm, 300 DPI</b>.</li>
+                <li>Barevný profil zvolte při vytvoření – později už změnit nejde. Malovat můžete v RGB.</li>
+                <li>Exportujte <b>PSD</b> a finální JPEG v CMYK FOGRA39 uložte ve Photoshopu.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Android – Sketchbook, ibis Paint, Infinite Painter</h3>
+              <ul>
+                <li>Plátno zadejte v pixelech: <b>3508 × 4961</b>.</li>
+                <li>Exportujte <b>PSD</b> nebo <b>PNG</b>, ve Photoshopu nastavte 300 DPI bez převzorkování a převeďte do FOGRA39 – stejně jako u školního Sketchbooku.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Vlastní pen tablet a Photoshop doma</h3>
+              <ul>
+                <li>Nainstalujte ovladač od výrobce tabletu (Wacom, XP-Pen, Huion) <b>před</b> připojením tabletu a restartujte.</li>
+                <li>Postup je stejný jako ve škole – viz záložka Photoshop.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-cmyk">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>RGB, CMYK a tiskový profil</h3>
+        <ul>
+          <li><span class="term">RGB</span> je <b>aditivní</b> model světla – monitor skládá barvy z červeného, zeleného a modrého světla. Všechny tři na maximum dají bílou.</li>
+          <li><span class="term">CMYK</span> je <b>subtraktivní</b> model tiskových barev – azurová (C), purpurová (M), žlutá (Y) a černá (K). Barvy pohlcují světlo; bílá vznikne tam, kde je 0 % všech barev, tedy čistý papír. Tiskařská čerň K se přidává, protože soutisk CMY dá jen špinavě hnědou.</li>
+          <li><span class="term">Gamut</span> je rozsah barev, které zařízení dokáže zobrazit nebo vytisknout. Gamut tisku je menší než gamut monitoru – zářivé RGB barvy (neonová zelená, sytá modrá) po převodu zmatní.</li>
+          <li><span class="term">Coated FOGRA39</span> (ISO 12647-2:2004) je evropský standard pro ofsetový tisk na křídový (natíraný) papír. Říká převodu, jak se konkrétní tiskové barvy na papíře chovají.</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <svg viewBox="0 0 420 300" style="width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:10px" role="img" aria-label="Aditivní míchání RGB a subtraktivní míchání CMY">
+          <g style="mix-blend-mode:screen"><rect x="10" y="10" width="190" height="230" rx="8" fill="#111"/>
+            <g style="mix-blend-mode:screen"><circle cx="82" cy="100" r="48" fill="#ff0000"/><circle cx="128" cy="100" r="48" fill="#00ff00"/><circle cx="105" cy="140" r="48" fill="#0000ff"/></g></g>
+          <rect x="220" y="10" width="190" height="230" rx="8" fill="#fff" stroke="rgba(0,0,0,.12)"/>
+          <g style="mix-blend-mode:multiply"><circle cx="292" cy="100" r="48" fill="#00AEEF"/><circle cx="338" cy="100" r="48" fill="#EC008C"/><circle cx="315" cy="140" r="48" fill="#FFF200"/></g>
+          <g style="font:700 15px var(--cond);fill:var(--ink)" text-anchor="middle"><text x="105" y="266">RGB – světlo (monitor)</text><text x="315" y="266">CMYK – barvy (tisk)</text></g>
+          <g style="font:500 13px var(--font);fill:var(--ink-soft)" text-anchor="middle"><text x="105" y="286">sčítáním vzniká bílá</text><text x="315" y="286">odečítáním vzniká tmavá</text></g>
+        </svg>
+        <div class="tip"><b>Neonové barvy</b>Pokud chcete zářivý digitální obraz, zkontrolujte ho během práce v náhledu CMYK (<kbd>Ctrl</kbd> + <kbd>Y</kbd>). Překvapení po vytištění se tak vyhnete.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-zaklady">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Základy digitální malby</span>Co umí digitál navíc</h2>
+        <p>Digitální malba napodobuje tradiční techniky – tužku, akvarel, olej – a přidává nástroje, které tradiční malba nemá: vrstvy, krok zpět, výběry a režimy prolnutí. Využívejte je, ale nezapomeňte, že pravidla barvy, tónu a kompozice platí stejně.</p>
+      </div>
+      <div class="cols">
+        <div class="card reveal"><h3>Vrstvy</h3><p>Kresba, základní barvy, stíny, světla a pozadí na samostatných vrstvách. Vrstvu s kresbou dejte nahoru a nastavte jí režim <b>Násobit</b> (Multiply).</p></div>
+        <div class="card reveal"><h3>Štětce a přítlak</h3><p>Začněte jedním kulatým štětcem s přítlakem na velikost a jedním texturovaným na plochy. Desítky štětců zdržují – malíř vystačí s pár.</p></div>
+        <div class="card reveal"><h3>Plochy výběrem</h3><p>Lasem vyberte tvar a vyplňte ho barvou. Rychle tak položíte základní (flat) barvy postavy nebo budovy a pak už malujete jen uvnitř výběru.</p></div>
+        <div class="card reveal"><h3>Zamknout průhlednost a ořezová maska</h3><p>Zámek průhledných pixelů nebo vrstva připnutá ořezovou maskou (Alt + klik mezi vrstvami) – malujete jen tam, kde už barva je.</p></div>
+        <div class="card reveal"><h3>Režimy prolnutí</h3><p><b>Násobit</b> pro stíny, <b>Závoj / Zesvětlit</b> (Screen, Color Dodge) pro světla a záři, <b>Překrýt</b> (Overlay) pro barevné tónování celého obrazu.</p></div>
+        <div class="card reveal"><h3>Od šedi k barvě</h3><p>Obraz můžete nejdřív namalovat jen ve stupních šedi a barvu přidat vrstvou v režimu Barva nebo Překrýt. Tón a barvu tak řešíte odděleně.</p></div>
+        <div class="card reveal"><h3>Zrcadlení</h3><p>Obraz občas vodorovně převraťte (<span class="menu-path">Obraz <i>›</i> Otočení obrazu <i>›</i> Převrátit plátno vodorovně</span>). Chyby v proporcích okamžitě uvidíte – stejně jako když se na kresbu díváte do zrcadla.</p></div>
+        <div class="card reveal"><h3>Krok zpět není zadarmo</h3><p><kbd>Ctrl</kbd> + <kbd>Z</kbd> svádí k malování po kouscích. Raději malujte velkými jistými tahy a opravujte až celé plochy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-odevzdani">
+    <div class="wrap cols-2">
+      <div class="reveal">
+        <div class="tool" id="nazev">
+          <h3>Pojmenování odevzdaného souboru</h3>
+          <p class="note" style="margin-top:0">Název bez diakritiky a mezer – například <code>lapkova_marie_2G_architektura.jpg</code>. Vyplňte údaje a název zkopírujte.</p>
+          <div class="tool-grid">
+            <label>Jméno<input type="text" id="n-jmeno" autocomplete="given-name" placeholder="Marie"></label>
+            <label>Příjmení<input type="text" id="n-prijmeni" autocomplete="family-name" placeholder="Lapková"></label>
+            <label>Třída<select id="n-trida"><option>2G</option></select></label>
+            <label>Téma<select id="n-tema"><option value="architektura">Architektura</option><option value="doprava">Dopravní prostředek</option><option value="charakter">Charakter</option><option value="komiks">Komiks</option><option value="dejiny">Dějiny umění</option><option value="volne">Volné téma</option></select></label>
+          </div>
+          <div class="fname" id="n-out"><code></code><button class="btn btn-small btn-ghost" type="button">Kopírovat</button></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="tool">
+          <h3>Kontrola před odevzdáním</h3>
+          <ul class="checklist" id="check-odevzdani">
+            <li><label><input type="checkbox"><span>Rozměry <b>3508 × 4961 px</b> (nebo 4961 × 3508 na šířku).</span></label></li>
+            <li><label><input type="checkbox"><span>Rozlišení <b>300 obr. bodů/palec</b>, tedy 29,7 × 42 cm.</span></label></li>
+            <li><label><input type="checkbox"><span>Převedeno <b>Převést do profilu → Coated FOGRA39</b>, v záhlaví je (CMYK/8).</span></label></li>
+            <li><label><input type="checkbox"><span>Uloženo <b>Uložit jako → JPEG</b> s vloženým profilem ICC, ne Exportovat.</span></label></li>
+            <li><label><input type="checkbox"><span>Kvalita JPEG <b>12 – Maximální</b>, formát <b>Základní (standardní)</b>.</span></label></li>
+            <li><label><input type="checkbox"><span>Název souboru podle vzoru, bez diakritiky a mezer.</span></label></li>
+            <li><label><input type="checkbox"><span>Pracovní <b>PSD s vrstvami</b> mám uložené zvlášť.</span></label></li>
+          </ul>
+          <p class="check-score" aria-live="polite"></p>
+          <button class="btn btn-small btn-ghost" type="button" id="check-reset">Začít znovu</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="digital-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Tablet, Sketchbook, Photoshop, CMYK</h2><p>První dvě videa doporučuje návod k tabletu Wacom Intuos. Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="digital"></div>
+      <div class="tip reveal" style="margin-top:24px"><b>Další videa ve sdílené složce</b>Ve složce <i>11_digitální malba charakteru / Tutoriály digitální malby</i> na OneDrive najdete čtyři delší videonávody digitální malby a kolorování (Photoshop, MediBang) a odborné texty o digitální malbě a matte paintingu.</div>
+    </div>
+  </section>
+  <section class="section" id="digital-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Nastavení výstupu pro tisk musíte zvládnout u každého digitálního zadání.</p></div><div class="quiz" data-quiz="digital"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 8 ARCHITEKTURA A DOPRAVA =========================== -->
+<section class="panel" id="architektura" data-etapa="8" data-nazev="Architektura a doprava" aria-label="Etapa 8 – Digitální malba architektury a dopravního prostředku">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 08 / 11</span><span class="blok">Blok 3 · Digitální malba</span></span>
+    <h1>Architektura a dopravní prostředek</h1>
+    <p class="lead">Dvě digitální zadání, která stojí na perspektivě z prvního ročníku. Budovu i auto nejdřív „postavíte“ z kvádrů a elips v perspektivní mřížce, teprve potom přijde barva, světlo a materiály – omítka, sklo, lesklý lak, chrom. Malujete ve Sketchbooku nebo ve Photoshopu, výstup A3 / 300 DPI / CMYK.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Digitální malba architektonického tématu</li>
+      <li><b>6 h</b>Digitální malba dopravního prostředku</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#architektura-mriz">Perspektivní mřížka</a><a href="#architektura-budova">Zadání: architektura</a><a href="#architektura-doprava">Zadání: dopravní prostředek</a><a href="#architektura-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="architektura-mriz">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní mřížka</span>Perspektiva jako vodítko</h2>
+        <p>Táhněte horizont a úběžníky. Stejnou mřížku si vytvoříte i v programu: Sketchbook má perspektivní vodítka pro 1, 2 i 3 úběžníky (tahy se k nim přichytávají), ve Photoshopu si úběžnice nakreslete na samostatnou vrstvu se sníženým krytím.</p>
+      </div>
+      <div class="lab reveal">
+        <div class="lab-head"><h3>Perspektivní mřížka</h3><span class="hint">táhněte úběžníky a horizont</span></div>
+        <div class="lab-body">
+          <div class="lab-stage" style="min-height:300px"><canvas id="cv-mriz" aria-label="Perspektivní mřížka s ukázkovou budovou"></canvas></div>
+          <div class="lab-ctrl">
+            <div class="seg" role="group" aria-label="Počet úběžníků"><button type="button" data-mriz="1" aria-pressed="false">1 úběžník</button><button type="button" data-mriz="2" aria-pressed="true">2 úběžníky</button><button type="button" data-mriz="3" aria-pressed="false">3 úběžníky</button></div>
+            <label><span>Hustota úběžnic</span><input type="range" id="r-mriz-hust" min="6" max="30" step="1" value="14"></label>
+            <label class="check"><input type="checkbox" id="c-mriz-kvadr" checked>Ukázková budova</label>
+            <div class="readout" id="mriz-readout" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="architektura-budova">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání 1 · 6 hodin</span>
+        <h3>Digitální malba architektonického tématu</h3>
+        <p>Budova, ulice, nádvoří, interiér nebo fantazijní architektura. Důležitá je přesvědčivá perspektiva, světlo a atmosféra – denní doba, počasí, roční období.</p>
+        <ol class="steps">
+          <li><b>Rešerše</b> – fotografie, vlastní fotky z města, nástěnka referencí.</li>
+          <li><b>Thumbnaily</b> – 4 až 6 malých tónových skic s různým úhlem pohledu.</li>
+          <li><b>Perspektivní vodítka</b> a linková kresba na samostatné vrstvě.</li>
+          <li><b>Plány</b> – pozadí, střed, popředí na vlastních vrstvách, každý v jiném tónu.</li>
+          <li><b>Světlo</b> – určete směr slunce, osvětlené stěny teplé, stínové studené.</li>
+          <li><b>Materiály a detaily</b> – okna odrážejí oblohu, omítka a cihly jen naznačené texturou.</li>
+          <li><b>Atmosféra</b> – mlha, vzdušná perspektiva, světla v oknech, postavy pro měřítko.</li>
+        </ol>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Tipy</span>
+        <h3>Jak dostat do budovy život</h3>
+        <div class="tip"><b>Zlatá hodinka</b>Nízké teplé slunce a dlouhé modré stíny vytvoří nejsilnější náladu. Zkuste stejný motiv ve dvou denních dobách.</div>
+        <div class="tip"><b>Okna nejsou černá</b>Sklo odráží oblohu a protější domy – nahoře světlejší, dole tmavší. Pár oken nechte svítit teplým světlem.</div>
+        <div class="tip"><b>Postavy a měřítko</b>Několik malých postav, auto nebo strom okamžitě prozradí velikost budovy.</div>
+        <div class="tip chyba"><b>Padající svislice</b>Ve dvouúběžníkové perspektivě zůstávají svislé hrany svislé. Ve Sketchbooku i Photoshopu kreslete svislice se stisknutým <kbd>Shift</kbd> nebo podle vodítka.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="architektura-doprava">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání 2 · 6 hodin</span>
+        <h3>Digitální malba dopravního prostředku</h3>
+        <p>Auto, motorka, tramvaj, loď, letadlo, vzducholoď, vesmírná loď – reálná i navržená. Volte pohled ze tří čtvrtin, který ukáže bok i předek.</p>
+        <ol class="steps">
+          <li><b>Boční pohled</b> – siluetu a poměry si vyřešte nejdřív z profilu.</li>
+          <li><b>Krabice v perspektivě</b> – vozidlo vepište do kvádru, kola do čtverců na jeho boku.</li>
+          <li><b>Kola jsou elipsy</b> – osa kola míří do úběžníku, vzdálenější kolo je užší elipsa.</li>
+          <li><b>Základní barvy</b> – karoserie, sklo, pneumatiky, světla na samostatných vrstvách.</li>
+          <li><b>Odrazy a materiály</b> – lak, sklo, chrom (viz vpravo).</li>
+          <li><b>Kontaktní stín</b> pod vozidlem a prostředí – silnice, kolejiště, hladina.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <figure class="card" style="margin:0">
+          <svg viewBox="0 0 400 220" style="width:100%;height:auto" role="img" aria-label="Lesklá karoserie odráží oblohu nahoře a zemi dole, s ostrou linií horizontu">
+            <defs><linearGradient id="lak" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9F2FB"/><stop offset=".42" stop-color="#7FA9D8"/><stop offset=".47" stop-color="#1E2A44"/><stop offset=".55" stop-color="#B4532A"/><stop offset="1" stop-color="#5A2A18"/></linearGradient></defs>
+            <rect width="400" height="220" fill="#FBF8F1"/>
+            <ellipse cx="200" cy="182" rx="170" ry="16" fill="#23272D" opacity=".35"/>
+            <path d="M40 160 C40 120 70 110 110 104 L150 70 C190 56 250 56 290 74 L330 104 C360 110 370 130 368 160Z" fill="url(#lak)" stroke="#23272D" stroke-width="2"/>
+            <path d="M160 76 C200 64 250 64 282 80 L300 102 H150Z" fill="#9FB6CE" stroke="#23272D" stroke-width="1.5"/>
+            <path d="M168 80 L200 74 L190 100 H160Z" fill="#fff" opacity=".6"/>
+            <circle cx="110" cy="164" r="26" fill="#23272D"/><circle cx="110" cy="164" r="12" fill="#C9C6BF"/>
+            <circle cx="300" cy="164" r="26" fill="#23272D"/><circle cx="300" cy="164" r="12" fill="#C9C6BF"/>
+            <path d="M60 120 C150 112 260 112 350 120" stroke="#fff" stroke-width="3" opacity=".8"/>
+            <g style="font:600 16px Caveat,cursive;fill:#23272D"><text x="8" y="40">obloha – světlý odraz</text><text x="8" y="214">země – tmavý, teplý odraz</text><text x="290" y="40">sklo odráží oblohu</text></g>
+          </svg>
+          <figcaption class="note" style="margin-top:6px">Lesklý lak je hlavně zrcadlem okolí. Ostrá linie „horizontu“ na boku karoserie prozradí tvar i materiál.</figcaption>
+        </figure>
+        <div class="tip"><b>Chrom a sklo</b>Chrom = extrémní kontrast: bílý odlesk těsně vedle téměř černé. Sklo = to, co je za ním, ztlumené, plus světlý odraz oblohy.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="architektura-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Prostředí, architektura, vozidla</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="architektura"></div>
+    </div>
+  </section>
+  <section class="section" id="architektura-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Perspektiva z prvního ročníku v digitální malbě.</p></div><div class="quiz" data-quiz="architektura"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 9 CHARAKTER =========================== -->
+<section class="panel" id="charakter" data-etapa="9" data-nazev="Charakter postavy" aria-label="Etapa 9 – Digitální malba charakteru (příběhové postavy)">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 09 / 11</span><span class="blok">Blok 3 · Digitální malba</span></span>
+    <h1>Charakter – příběhová postava</h1>
+    <p class="lead">Návrh postavy pro hru, film, animaci nebo knihu. Dobrá postava se pozná na první pohled: tvarem, siluetou a barvami prozradí, kdo je, odkud je a co od ní čekat. Navrhnete vlastní postavu a namalujete ji ve třech pózách nebo pohledech.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Digitální malba charakteru (příběhové postavy)</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#charakter-tvary">Tvarový jazyk</a><a href="#charakter-generator">Generátor zadání</a><a href="#charakter-postup">Postup</a><a href="#charakter-odkazy">Odkazy</a><a href="#charakter-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="charakter-tvary">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Teorie</span>Tvarový jazyk a silueta</h2>
+        <p>Lidé čtou tvary podvědomě. Postava postavená převážně z jednoho základního tvaru v nás vyvolá odpovídající pocit – ještě dřív, než uvidíme obličej.</p>
+      </div>
+      <div class="shapes">
+        <div class="card reveal"><svg viewBox="0 0 200 150" aria-hidden="true"><g filter="url(#wc)"><circle cx="100" cy="48" r="30" fill="#F5B921" opacity=".75"/><ellipse cx="100" cy="112" rx="46" ry="36" fill="#F5B921" opacity=".6"/></g><circle cx="90" cy="46" r="4" fill="#23272D"/><circle cx="110" cy="46" r="4" fill="#23272D"/><path d="M90 60 q10 8 20 0" stroke="#23272D" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><h3>Kruh</h3><p>Přátelský, měkký, hravý, bezpečný. Roztomilí pomocníci, děti, maskoti.</p></div>
+        <div class="card reveal"><svg viewBox="0 0 200 150" aria-hidden="true"><g filter="url(#wc)"><rect x="74" y="16" width="52" height="46" fill="#2C59B8" opacity=".7"/><rect x="52" y="64" width="96" height="78" fill="#2C59B8" opacity=".55"/></g><rect x="86" y="34" width="8" height="5" fill="#23272D"/><rect x="106" y="34" width="8" height="5" fill="#23272D"/><path d="M90 50 h20" stroke="#23272D" stroke-width="2.4"/></svg><h3>Čtverec</h3><p>Pevný, spolehlivý, silný, tvrdohlavý. Strážci, ochránci, siláci.</p></div>
+        <div class="card reveal"><svg viewBox="0 0 200 150" aria-hidden="true"><g filter="url(#wc)"><path d="M100 6 L128 60 H72Z" fill="#B8323F" opacity=".7"/><path d="M60 64 H140 L100 146Z" fill="#B8323F" opacity=".55"/></g><path d="M88 42 l8 3 M112 42 l-8 3" stroke="#23272D" stroke-width="2.6" stroke-linecap="round"/><path d="M92 54 l8 -3 l8 3" stroke="#23272D" stroke-width="2" fill="none"/></svg><h3>Trojúhelník</h3><p>Dynamický, rychlý, nebezpečný, nevyzpytatelný. Záporáci, bojovníci – nebo hrdinové v akci.</p></div>
+        <div class="card reveal"><svg viewBox="0 0 200 150" aria-hidden="true"><g fill="#23272D"><circle cx="40" cy="40" r="16"/><path d="M22 60 h36 l6 50 h-12 l-4 34 h-16 l-4 -34 h-12z"/><circle cx="100" cy="36" r="13"/><path d="M84 52 L116 52 L132 100 L114 96 L110 146 H92 L88 96 L70 100Z"/><circle cx="160" cy="42" r="15"/><path d="M144 60 h32 l14 34 l-12 4 l-6 -14 v62 h-12 v-40 h-4 v40 h-12 v-62 l-6 14 l-12 -4z"/></g></svg><h3>Silueta</h3><p>Postavu navrhujte jako černou siluetu. Pokud ji poznáte i bez detailů, je dobře navržená. Výrazné rekvizity a účes pomáhají.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="charakter-generator">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Námět</span>
+        <h3>Nevíte, koho navrhnout?</h3>
+        <p>Nechte si vylosovat zadání. Hodnoty, které se vám líbí, zamkněte zámkem a losujte znovu jen zbytek. Výsledek berte jako výchozí bod – postavu si klidně upravte podle sebe.</p>
+        <p>Barevné schéma volte záměrně. <b>Doplňkové barvy</b> postavu rozzáří, ale jedna musí převládat; ta druhá je jen akcentem (oči, šála, zbraň). Podrobněji v článku o <a href="https://shop.lucaspeinador.com/blogs/news/color-blog-post" target="_blank" rel="noopener">využití komplementárních barev v malbě charakteru ↗</a>.</p>
+      </div>
+      <div class="tool reveal" id="gen-postava">
+        <h3>Generátor zadání postavy</h3>
+        <div class="gen"></div>
+        <button class="btn btn-primary" type="button" id="gen-losuj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>Vylosovat zadání</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="charakter-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání · 6 hodin</span>
+        <h3>Postup návrhu postavy</h3>
+        <ol class="steps">
+          <li><b>Příběh</b> – kdo postava je, co chce, čeho se bojí. Dvě tři věty stačí.</li>
+          <li><b>Moodboard</b> – reference oblečení, materiálů, zbraní, prostředí.</li>
+          <li><b>10 siluet</b> – rychle, jen černou výplní. Vyberte nejčitelnější.</li>
+          <li><b>Kresba</b> vybrané siluety – proporce, kostým, rekvizity.</li>
+          <li><b>Základní barvy</b> (flat colors) – každá část na vlastní vrstvě nebo výběrem.</li>
+          <li><b>Stíny a světla</b> – vrstva Násobit pro stíny, Závoj pro světla. Jeden zdroj světla.</li>
+          <li><b>Tři pohledy nebo pózy</b> – zepředu, z boku, zezadu, případně akční póza.</li>
+        </ol>
+      </div>
+      <figure class="reveal" style="margin:0">
+        <div class="gallery" data-gallery="charakter" style="columns:1"></div>
+        <figcaption class="note">Návrh postavy ve třech pohledech (turnaround). Stejné proporce, barvy a detaily ze všech stran – podle takového listu pak postavu kreslí animátoři.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="charakter-odkazy">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Odkazy k zadání</span>Čtení o návrhu postavy</h2><p>Články jsou v angličtině – prohlížeč je umí přeložit do češtiny.</p></div>
+      <div class="links-grid reveal">
+        <a class="link-card" href="https://99designs.com/blog/art-illustration/character-design/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5 21c1-5 4-7 7-7s6 2 7 7"/></svg><div><b>Návrh charakteru</b><span>Úvod do character designu – postup a principy.</span></div></a>
+        <a class="link-card" href="https://www.vectornator.io/blog/character-design/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16M6 16l5-10 3 6 2-3 3 7"/></svg><div><b>Podrobnější rozbor návrhu charakteru</b><span>Tvary, proporce, barvy a osobnost postavy.</span></div></a>
+        <a class="link-card" href="https://www.creativebloq.com/character-design/tips-5132643" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg><div><b>27 tipů pro vytváření charakterů</b><span>Praktické rady profesionálů.</span></div></a>
+        <a class="link-card" href="https://www.bing.com/images/create" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 15l3-4 2 3 3-5"/></svg><div><b>Generátor obrázků Bing</b><span>Jen pro hledání nápadů a referencí – odevzdaná postava musí být vaše vlastní malba.</span></div></a>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="charakter-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Character design</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="charakter"></div>
+    </div>
+  </section>
+  <section class="section" id="charakter-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Pojmy z návrhu postavy.</p></div><div class="quiz" data-quiz="charakter"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 10 KOMIKS =========================== -->
+<section class="panel" id="komiks" data-etapa="10" data-nazev="Komiksový strip" aria-label="Etapa 10 – Digitální malba komiksového stripu">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 10 / 11</span><span class="blok">Blok 3 · Digitální malba</span></span>
+    <h1>Komiksový strip</h1>
+    <p class="lead">Strip je krátký komiks o třech až čtyřech políčcích s pointou na konci. Spojuje všechno, co jste se naučili: postavu, prostředí, perspektivu, světlo a barvu – a k tomu vyprávění v čase. Vymyslíte příběh, rozvrhnete políčka, namalujete je digitálně a doplníte bubliny.</p>
+    <ul class="zadani">
+      <li><b>6 h</b>Digitální malba komiksového stripu</li>
+    </ul>
+    <nav class="subnav" aria-label="Obsah etapy">
+      <a href="#komiks-pojmy">Pojmy</a><a href="#komiks-zabery">Záběry</a><a href="#komiks-sablona">Šablona A3</a><a href="#komiks-postup">Postup</a><a href="#komiks-ukazky">Ukázky</a><a href="#komiks-videa">Videa</a>
+    </nav>
+  </div>
+
+  <section class="section" id="komiks-pojmy">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Teorie</span>
+        <h3>Jazyk komiksu</h3>
+        <ul>
+          <li><span class="term">Panel (políčko)</span> – jeden okamžik děje. Velikost políčka určuje, jak dlouho se u něj čtenář zdrží.</li>
+          <li><span class="term">Mezera mezi panely</span> (gutter) – v ní se odehrává čas. Čtenář si děj mezi dvěma políčky domýšlí.</li>
+          <li><span class="term">Bublina</span> – řeč (ocásek k mluvčímu), myšlenka (obláček), výkřik (zubatý okraj), šepot (čárkovaný okraj).</li>
+          <li><span class="term">Popisek</span> – hranatý rámeček s hlasem vypravěče („Mezitím na druhém konci města…“).</li>
+          <li><span class="term">Onomatopoie</span> – zvukomalebná slova (BUM, ŠPLÍCH) jako součást kresby.</li>
+          <li><b>Směr čtení</b> – zleva doprava a shora dolů. Kdo mluví první, stojí vlevo.</li>
+        </ul>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Stavba stripu</span>
+        <h3>Úvod – zápletka – pointa</h3>
+        <svg viewBox="0 0 420 130" style="width:100%;height:auto;margin:6px 0 10px" role="img" aria-label="Schéma tříokénkového stripu s bublinami">
+          <rect width="420" height="130" fill="#fff"/>
+          <g fill="none" stroke="#23272D" stroke-width="2"><rect x="6" y="6" width="128" height="118"/><rect x="146" y="6" width="128" height="118"/><rect x="286" y="6" width="128" height="118"/></g>
+          <g fill="#fff" stroke="#23272D" stroke-width="1.5"><path d="M20 18 h80 a10 10 0 0 1 10 10 v14 a10 10 0 0 1 -10 10 h-40 l-10 12 l0 -12 h-30 a10 10 0 0 1 -10 -10 v-14 a10 10 0 0 1 10 -10z"/><ellipse cx="210" cy="34" rx="50" ry="20"/><circle cx="190" cy="62" r="5"/><circle cx="184" cy="74" r="3"/><path d="M300 30 l14 -12 l6 12 l14 -14 l4 14 l16 -10 l0 14 l16 -6 l-8 14 l14 6 l-16 6 l8 12 l-16 -4 l-2 14 l-12 -10 l-10 12 l-4 -14 l-14 8 l2 -14 l-14 -2 l12 -10z"/></g>
+          <g style="font:600 13px var(--font);fill:#23272D" text-anchor="middle"><text x="60" y="40">Ahoj!</text><text x="210" y="38">Hmm…</text><text x="348" y="48" style="font:800 15px var(--cond)">BUM!</text></g>
+          <g style="font:600 15px Caveat,cursive;fill:#B4532A" text-anchor="middle"><text x="70" y="112">1 · úvod</text><text x="210" y="112">2 · zápletka</text><text x="350" y="112">3 · pointa</text></g>
+        </svg>
+        <div class="tip"><b>Pointa na konci</b>Překvapení, vtip nebo zvrat patří do posledního políčka vpravo. Kdyby byl v prvním, čtenář by ho uviděl dřív, než začne číst.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="komiks-zabery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Filmová řeč</span>Typy záběrů</h2>
+        <p>Komiks si vypůjčil záběry z filmu. Střídejte je – stejný záběr ve všech políčkách je nudný.</p>
+      </div>
+      <div class="shot-cards reveal">
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#DCE9F5"/><path d="M0 72 C40 60 90 66 160 62 V100 H0Z" fill="#A9C98A"/><rect x="104" y="36" width="26" height="30" fill="#C9A27A"/><path d="M100 38 L117 24 L134 38Z" fill="#B4532A"/><g fill="#23272D"><circle cx="50" cy="66" r="2.2"/><path d="M48 68 h4 l1 8 h-6z"/></g></svg><figcaption><b>Celek</b>Prostředí a postava v něm – kde se děj odehrává.</figcaption></figure>
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#DCE9F5"/><rect y="84" width="160" height="16" fill="#A9C98A"/><g fill="#23272D"><circle cx="80" cy="22" r="9"/><path d="M68 34 h24 l4 30 h-8 l-2 22 h-12 l-2 -22 h-8z"/></g></svg><figcaption><b>Polocelek</b>Celá postava – vidíme gesto a pohyb.</figcaption></figure>
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#DCE9F5"/><g fill="#23272D"><circle cx="80" cy="36" r="20"/><path d="M44 100 C46 70 60 62 80 62 C100 62 114 70 116 100Z"/></g></svg><figcaption><b>Polodetail</b>Postava od pasu nahoru – rozhovor, reakce.</figcaption></figure>
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#F1DDD0"/><ellipse cx="80" cy="56" rx="54" ry="60" fill="#E2B58F"/><g fill="#23272D"><ellipse cx="60" cy="46" rx="7" ry="9"/><ellipse cx="100" cy="46" rx="7" ry="9"/></g><path d="M64 80 q16 10 32 0" stroke="#23272D" stroke-width="3" fill="none"/></svg><figcaption><b>Detail</b>Obličej – emoce, napětí, reakce.</figcaption></figure>
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#E2B58F"/><ellipse cx="80" cy="50" rx="44" ry="30" fill="#fff"/><circle cx="80" cy="50" r="22" fill="#2C59B8"/><circle cx="80" cy="50" r="10" fill="#111"/><circle cx="73" cy="43" r="4" fill="#fff"/></svg><figcaption><b>Velký detail</b>Oko, ruka, klíčový předmět – dramatické zdůraznění.</figcaption></figure>
+        <figure><svg viewBox="0 0 160 100" aria-hidden="true"><rect width="160" height="100" fill="#BFD9F2"/><path d="M30 100 L60 10 L100 10 L130 100Z" fill="#C9A27A"/><g stroke="#23272D" stroke-width="1" opacity=".5"><path d="M45 55 h70 M38 78 h84 M52 32 h56"/></g><g fill="#23272D"><circle cx="80" cy="86" r="7"/></g></svg><figcaption><b>Žabí a ptačí pohled</b>Zespodu = postava působí mocně, shora = malá a ztracená.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="komiks-sablona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Interaktivní nástroj</span>Šablona políček A3</h2>
+        <p>Vyberte rozvržení, nastavte okraj a mezery. Šablonu stáhnete jako PNG v plném rozlišení A3 / 300 DPI (3508 × 4961 px) – otevřete ji ve Sketchbooku nebo Photoshopu a malujte do ní na nové vrstvy.</p>
+      </div>
+      <div class="lab reveal" id="lab-strip">
+        <div class="lab-head"><h3>Rozvržení komiksu</h3><span class="hint">A3 na výšku</span></div>
+        <div class="lab-body">
+          <div class="lab-stage strip-preview" id="strip-nahled" style="min-height:0"></div>
+          <div class="lab-ctrl">
+            <div class="seg" role="group" aria-label="Rozvržení" style="display:grid;grid-template-columns:1fr 1fr">
+              <button type="button" data-roz="strip3" aria-pressed="true">Strip 3</button><button type="button" data-roz="strip4" aria-pressed="false">Strip 4</button>
+              <button type="button" data-roz="2x2" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">2 × 2</button><button type="button" data-roz="1+2" aria-pressed="false" style="border-top:1.5px solid var(--ink)">1 + 2</button>
+              <button type="button" data-roz="3x2" aria-pressed="false" style="border-left:0;border-top:1.5px solid var(--ink)">2 × 3</button><button type="button" data-roz="dyn" aria-pressed="false" style="border-top:1.5px solid var(--ink)">Dynamická</button>
+            </div>
+            <label><span>Okraj stránky <output id="o-strip-okraj"></output></span><input type="range" id="r-strip-okraj" min="5" max="25" step="1" value="12"></label>
+            <label><span>Mezera mezi políčky <output id="o-strip-mezera"></output></span><input type="range" id="r-strip-mezera" min="2" max="12" step="1" value="5"></label>
+            <button class="btn btn-primary" type="button" id="strip-stahnout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Stáhnout šablonu PNG</button>
+            <p>Strip zabírá horní část stránky – zbytek formátu můžete využít na název, druhý strip nebo nechat volný.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="komiks-postup">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Zadání · 6 hodin</span>
+        <h3>Postup tvorby stripu</h3>
+        <ol class="steps">
+          <li><b>Námět a pointa</b> – nejdřív vymyslete konec, pak cestu k němu.</li>
+          <li><b>Scénář</b> po políčkách: co je vidět, kdo co říká (krátce!).</li>
+          <li><b>Thumbnaily</b> – malé náčrty celého stripu, střídání záběrů, místo pro bubliny.</li>
+          <li><b>Kresba</b> do šablony na samostatné vrstvě.</li>
+          <li><b>Linky (tuš)</b> – čistá kresba silnějším štětcem, rámečky políček.</li>
+          <li><b>Barva</b> – základní barvy pod linky, stíny, světla, atmosféra.</li>
+          <li><b>Bubliny a písmo</b> – nejdřív text, pak bublina kolem něj. Písmo čitelné, jednotné.</li>
+          <li><b>Export</b> – A3, 300 DPI, CMYK FOGRA39, JPEG kvalita 12 (<a href="#digital-navody">návod</a>).</li>
+        </ol>
+      </div>
+      <div class="prose reveal">
+        <span class="kicker">Inspirace</span>
+        <h3>Čeští komiksoví tvůrci</h3>
+        <p>Komiksový rozcestník shromažďuje odkazy na desítky českých autorek a autorů, nakladatelství, festivaly a podcasty o komiksu.</p>
+        <div class="links-grid" style="grid-template-columns:1fr">
+          <a class="link-card" href="https://honza-modeluje.github.io/komiksovy_rozcestnik/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg><div><b>Komiksový rozcestník</b><span>Tvůrci, festivaly, nakladatelé, podcasty.</span></div></a>
+          <a class="link-card" href="https://sketch.spse.cz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/></svg><div><b>Projekt SKETCH</b><span>Školní přednášky a workshopy.</span></div></a>
+          <a class="link-card" href="https://cz.pinterest.com/jarsvobodajs/komiks/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div><b>Nástěnka Komiks</b><span>Obrazové reference na Pinterestu.</span></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="komiks-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Ukázky</span>Komiksové stripy Dana Černého</h2><p>Sledujte střídání záběrů, umístění bublin a práci s mezerami mezi políčky.</p></div>
+      <div class="gallery" data-gallery="komiks"></div>
+    </div>
+  </section>
+  <section class="section" id="komiks-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Políčka a bubliny</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="komiks"></div>
+    </div>
+  </section>
+  <section class="section" id="komiks-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Jazyk komiksu.</p></div><div class="quiz" data-quiz="komiks"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== 11 DĚJINY UMĚNÍ =========================== -->
+<section class="panel" id="dejiny" data-etapa="11" data-nazev="Dějiny umění" aria-label="Etapa 11 – Dějiny umění">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Etapa 11 / 11</span><span class="blok">Blok 4 · Dějiny umění</span></span>
+    <h1>Dějiny umění</h1>
+    <p class="lead">Patnáct období od pravěku po současnost, každé za tři hodiny. Po probrání každého tématu následuje zadané výtvarné cvičení, které se k němu vztahuje – pracuje se digitálně v učebně s grafickým vybavením. Teorii, časovou osu a přehled k opakování najdete na samostatném výukovém webu.</p>
+    <ul class="zadani">
+      <li><b>45 h</b>15 témat × 3 hodiny, vždy s výtvarným cvičením</li>
+    </ul>
+    <div class="btns" style="margin-top:22px">
+      <a class="btn btn-primary" href="https://svoboda-koduje.github.io/dejiny_umeni/#osa" target="_blank" rel="noopener">Časová osa dějin umění ↗</a>
+      <a class="btn btn-ghost" href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener">Seznam epoch a slohů ↗</a>
+      <a class="btn btn-ghost" href="https://svoboda-koduje.github.io/dejiny_umeni/#prehled" target="_blank" rel="noopener">Rychlý přehled k testu ↗</a>
+    </div>
+  </div>
+
+  <section class="section" id="dejiny-temata">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2><span class="kicker">Tematický plán</span>Patnáct období</h2>
+        <p>U každého tématu je uveden příklad navazujícího digitálního cvičení. Konkrétní zadání upřesní vyučující v hodině.</p>
+      </div>
+      <ol class="timeline reveal">
+        <li><span class="n">1</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění paleolitu, mezolitu a neolitu</b><span>Jeskynní malby, venuše, megality. Námět cvičení: zvíře malované zemitými pigmenty na texturu skály.</span></a></li>
+        <li><span class="n">2</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Starověké civilizace Mezopotámie a Egypta</b><span>Kánon postavy, profil a čelní pohled zároveň. Námět: autoportrét v egyptském kánonu.</span></a></li>
+        <li><span class="n">3</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Antika – Řecko a Řím</b><span>Ideální proporce, kontrapost, vázová malba. Námět: postava na černofigurové váze.</span></a></li>
+        <li><span class="n">4</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Křesťanská antika a Byzantská říše</b><span>Mozaiky a ikony, zlaté pozadí. Námět: digitální mozaika nebo ikona.</span></a></li>
+        <li><span class="n">5</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Raný středověk</b><span>Iluminované rukopisy, iniciály, prolínané ornamenty. Námět: iniciála vlastního jména.</span></a></li>
+        <li><span class="n">6</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění románské</b><span>Rotundy, nástěnné malby, plošná stylizace. Námět: příběh ve stylu románské fresky.</span></a></li>
+        <li><span class="n">7</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění gotické</b><span>Katedrály, vitráže, deskové malířství. Námět: vitráž s barevnými plochami a olověnými linkami.</span></a></li>
+        <li><span class="n">8</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění renesance</b><span>Lineární perspektiva, sfumato, anatomie. Námět: renesanční portrét s krajinou v pozadí.</span></a></li>
+        <li><span class="n">9</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění baroka a rokoka</b><span>Šerosvit, dynamika, iluzivní malba. Námět: zátiší v ostrém šerosvitu.</span></a></li>
+        <li><span class="n">10</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění 19. století – klasicismus</b><span>Návrat k antice, řád, linie. Námět: architektonický detail v čisté kresbě a lazuře.</span></a></li>
+        <li><span class="n">11</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění 19. století – romantismus a realismus</b><span>Krajina, emoce, každodenní život. Námět: krajina v bouři nebo v mlze.</span></a></li>
+        <li><span class="n">12</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Impresionismus a expresionismus</b><span>Světlo a barva v plenéru, barva jako výraz pocitu. Námět: jeden motiv ve dvou náladách.</span></a></li>
+        <li><span class="n">13</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění secese</b><span>Ornament, křivka, plakát, Alfons Mucha. Námět: secesní plakát s figurou a ornamentem.</span></a></li>
+        <li><span class="n">14</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění 20. století</b><span>Kubismus, surrealismus, abstrakce, pop art. Námět: kubistické zátiší nebo popartový portrét.</span></a></li>
+        <li><span class="n">15</span><a href="https://svoboda-koduje.github.io/dejiny_umeni/#seznam" target="_blank" rel="noopener"><b>Umění 21. století</b><span>Digitální umění, street art, instalace, umělá inteligence. Námět: vlastní reakce na současné téma.</span></a></li>
+      </ol>
+    </div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== DALŠÍ TECHNIKY =========================== -->
+<section class="panel" id="techniky" data-nazev="Další malířské techniky" aria-label="Další malířské techniky – tempera, kvaš, akryl, olej">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Nad rámec výuky</span><span class="blok">pro zvídavé a na soutěže</span></span>
+    <h1>Tempera, kvaš, akryl, olej</h1>
+    <p class="lead">Ve škole malujeme hlavně vodovkami a akvarelem. Pokud chcete zkusit víc – doma, na soutěž nebo do portfolia na vysokou školu – tady je přehled dalších malířských technik. Všechny se liší <b>pojidlem</b>, tedy látkou, která drží pigment pohromadě a lepí ho k podkladu.</p>
+    <nav class="subnav" aria-label="Obsah"><a href="#techniky-tabulka">Srovnání technik</a><a href="#techniky-volba">Kterou zvolit?</a><a href="#techniky-ukazky">Ukázky</a><a href="#techniky-videa">Videa</a></nav>
+  </div>
+
+  <section class="section" id="techniky-tabulka">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Přehled</span>Srovnání malířských technik</h2><p>Krytí: jak moc barva zakryje to, co je pod ní. Schnutí: jak rychle můžete malovat další vrstvu.</p></div>
+      <div class="table-scroll reveal">
+        <table class="tech-table">
+          <thead><tr><th>Technika</th><th>Pojidlo</th><th>Ředí se</th><th>Krytí</th><th>Schnutí</th><th>Podklad</th><th>Typické použití a pozor na</th></tr></thead>
+          <tbody>
+            <tr><th><span class="dot" style="background:#5874BC"></span>Akvarel, vodovky</th><td>arabská guma</td><td>vodou</td><td><span class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></span> průsvitné</td><td>minuty</td><td>papír</td><td>Lehkost, světlo z papíru. Opravy jsou obtížné, bílou nepoužívat.</td></tr>
+            <tr><th><span class="dot" style="background:#E2A42B"></span>Kvaš (gouache)</th><td>arabská guma + plnidlo</td><td>vodou</td><td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> krycí</td><td>minuty</td><td>silnější papír, karton</td><td>Ilustrace, plakáty, ploché barevné plochy. Zaschlá barva se znovu rozpouští – vrstvy se mohou rozmývat.</td></tr>
+            <tr><th><span class="dot" style="background:#C69A5B"></span>Tempera</th><td>emulze (vaječná, kaseinová, dnes často syntetická)</td><td>vodou</td><td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> krycí i lazurní</td><td>rychle</td><td>papír, karton, deska</td><td>Školní i umělecká malba, sametově matný povrch. Silné vrstvy mohou praskat.</td></tr>
+            <tr><th><span class="dot" style="background:#B8323F"></span>Akryl</th><td>akrylátová pryskyřice (disperze)</td><td>vodou, médii</td><td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span> krycí i lazurní</td><td>velmi rychle</td><td>plátno, deska, papír, zeď</td><td>Univerzální, po zaschnutí vodostálý. Štětce myjte hned – zaschlý akryl je zničí.</td></tr>
+            <tr><th><span class="dot" style="background:#4E7A45"></span>Olejomalba</th><td>vysychavý olej (lněný)</td><td>terpentýnem, ředidly</td><td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> krycí i lazurní</td><td>dny až týdny</td><td>šepsované plátno, deska</td><td>Plynulé přechody, sytost, trvanlivost. Pravidlo „tučné na hubené“, větrat, ředidla nevylévat do odpadu.</td></tr>
+            <tr><th><span class="dot" style="background:#E89BB0"></span>Suchý pastel</th><td>minimum pojidla</td><td>neředí se</td><td><span class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> krycí</td><td>–</td><td>pastelový papír se zrnem</td><td>Na pomezí kresby a malby, rozmazává se prstem. Hotovou práci zafixujte fixativem.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="techniky-volba">
+    <div class="wrap cols-2">
+      <div class="prose reveal">
+        <span class="kicker">Rozhodovací pomocník</span>
+        <h3>Kterou techniku zvolit?</h3>
+        <p>Zaškrtněte, co od malby očekáváte. Doporučení je jen orientační – nejvíc se naučíte, když si techniku vyzkoušíte.</p>
+        <div class="tip"><b>Bezpečnost</b>Olejové barvy a ředidla patří do větrané místnosti. Hadry nasáklé olejem nenechávejte zmuchlané v koši – mohou se samy vznítit. Rozložte je venku k proschnutí.</div>
+      </div>
+      <div class="tool reveal" id="volba-techniky">
+        <h3>Co potřebuji</h3>
+        <ul class="checklist">
+          <li><label><input type="checkbox" name="svetle"><span>Malovat světlou barvou přes tmavou</span></label></li>
+          <li><label><input type="checkbox" name="rychle"><span>Rychle schnoucí barvu – hotovo za jednu hodinu</span></label></li>
+          <li><label><input type="checkbox" name="prechody"><span>Jemné plynulé přechody a míchání přímo na obraze</span></label></li>
+          <li><label><input type="checkbox" name="skola"><span>Malovat ve škole nebo doma bez zápachu a ředidel</span></label></li>
+          <li><label><input type="checkbox" name="platno"><span>Malovat na plátno nebo desku</span></label></li>
+          <li><label><input type="checkbox" name="pruhledne"><span>Průsvitné, zářivé barvy a lehkost</span></label></li>
+        </ul>
+        <p id="volba-vysledek" style="margin:14px 0 0" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="techniky-ukazky">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Obrazové ukázky</span>Krycí malba</h2><p>Tempera, pastózní malba a realistická krycí malba – porovnejte s průsvitným akvarelem.</p></div>
+      <div class="gallery" data-gallery="techniky"></div>
+    </div>
+  </section>
+  <section class="section" id="techniky-videa">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Videotutoriály</span>Kvaš, akryl, olej</h2><p>Zapněte si titulky a automatický překlad do češtiny.</p></div>
+      <div class="videos" data-videos="techniky"></div>
+    </div>
+  </section>
+  <section class="section" id="techniky-kviz">
+    <div class="wrap"><div class="section-head reveal"><h2><span class="kicker">Zkontrolujte se</span>Krátký kvíz</h2><p>Pojidla a vlastnosti barev.</p></div><div class="quiz" data-quiz="techniky"></div></div>
+  </section>
+  <div class="wrap pager" data-pager></div>
+</section>
+
+<!-- =========================== VIDEA =========================== -->
+<section class="panel" id="videa" data-nazev="Videotutoriály" aria-label="Doporučené videotutoriály">
+  <div class="wrap stage-head">
+    <span class="kicker"><span>Přehled</span><span class="blok">všechny etapy</span></span>
+    <h1>Doporučené videotutoriály</h1>
+    <p class="lead">Vybraná videa k ruční i digitální malbě, rozdělená podle etap. Většina je v angličtině – v přehrávači YouTube si zapněte titulky a automatický překlad do češtiny (ozubené kolo → Titulky → Automaticky přeložit → čeština). Videa se načtou až po kliknutí.</p>
+    <div class="filters" id="video-filtry" role="group" aria-label="Filtr etap" style="margin-top:20px"></div>
+  </div>
+  <section class="section" style="padding-top:10px">
+    <div class="wrap" id="videa-vse"></div>
+  </section>
+  <section class="section" id="videa-nastroje">
+    <div class="wrap">
+      <div class="section-head reveal"><h2><span class="kicker">Nástroje</span>Online pomocníci</h2><p>Aplikace a weby, které pomohou s přípravou malby.</p></div>
+      <div class="links-grid reveal">
+        <a class="link-card" href="https://app.justsketch.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><path d="M12 6v7M7 9l5-1 5 3M9 22l3-9 2 9"/></svg><div><b>JustSketchMe</b><span>Online 3D panák – napozicujte figuru a nastavte světlo.</span></div></a>
+        <a class="link-card" href="https://svoboda-koduje.github.io/enviro-projekty-3g/vyuka/01-barevna-paleta.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1.5" fill="currentColor"/><circle cx="12" cy="7" r="1.5" fill="currentColor"/><circle cx="16" cy="10" r="1.5" fill="currentColor"/></svg><div><b>Teorie barev</b><span>Barevné modely, harmonie a tvorba palet.</span></div></a>
+        <a class="link-card" href="#uvod-pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg><div><b>Nástěnky s referencemi</b><span>Obrazové vzory na Pinterestu podle témat.</span></div></a>
+      </div>
+      <h3 class="reveal" style="font:700 1.35rem var(--cond);margin:34px 0 12px">Optické klamy a barevné vidění</h3>
+      <p class="reveal" style="max-width:46em;color:var(--ink-soft)">Oko a mozek nám občas „lžou“ – a malíři to využívají. Podívejte se, jak vnímání barev a tvarů funguje:</p>
+      <div class="inline-links reveal">
+        <a href="https://www.creativebloq.com/features/optical-illusions" target="_blank" rel="noopener">Optické klamy (Creative Bloq)</a>
+        <a href="https://edu.ceskatelevize.cz/video/5389-pokus-opticke-klamy" target="_blank" rel="noopener">Pokus: optické klamy (ČT edu)</a>
+        <a href="https://cs.wikipedia.org/wiki/Optick%C3%BD_klam" target="_blank" rel="noopener">Optický klam (Wikipedie)</a>
+        <a href="https://www.rd.com/article/optical-illusions/" target="_blank" rel="noopener">Optical illusions (Reader's Digest)</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<button class="totop" id="totop" type="button" aria-label="Zpět na začátek stránky" title="Nahoru">
+  <svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="25"/></svg>
+  <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený obrázek">
+  <figure><img id="lb-img" alt=""></figure>
+  <div class="lb-cap" id="lb-cap"></div>
+  <button class="lb-close" type="button" aria-label="Zavřít"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-prev" type="button" aria-label="Předchozí"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="lb-next" type="button" aria-label="Další"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="img/logo-spse-bila.png" alt="SPŠE a VOŠ Pardubice" width="600" height="168">
+        <p>Střední průmyslová škola elektrotechnická a Vyšší odborná škola Pardubice</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Karla IV. 13, 530 02 Pardubice</p>
+        <p><a href="tel:+420466614788">+420 466 614 788</a></p>
+        <p><a href="mailto:spse@spse.cz">spse@spse.cz</a></p>
+      </div>
+      <div>
+        <h4>Předmět Grafická tvorba</h4>
+        <p><a href="https://spsecz-my.sharepoint.com/:f:/g/personal/svoboda_spse_cz/IgDbvM43I7ekTKYIU8cOZK3qAajBGAELokUpcyz8-JyhzOc?e=HjehVl" target="_blank" rel="noopener">2.G Grafická tvorba 26_27 (OneDrive)</a></p>
+        <p><a href="https://svoboda-koduje.github.io/enviro-projekty-3g/vyuka/01-barevna-paleta.html" target="_blank" rel="noopener">Teorie barev</a></p>
+        <p><a href="https://svoboda-koduje.github.io/dejiny_umeni/" target="_blank" rel="noopener">Dějiny umění</a></p>
+        <p><a href="https://svoboda-koduje.github.io/spse_seznam_soutezi/" target="_blank" rel="noopener">Seznam soutěží</a></p>
+        <p><a href="https://www.spse.cz/stredni-skola/obory-m/18-20-M-01-informacni-technologie-pocitacova-grafika">IT – Počítačová grafika</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="rok">2026</span> SPŠE a VOŠ Pardubice · Grafická tvorba, 2. ročník</span>
+      <span>Ukázky slouží výhradně k výukovým účelům · autorská práva náleží autorům děl</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/interaktivni.js"></script>
+</body>
+</html>
