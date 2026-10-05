@@ -17,10 +17,8 @@ window.VIDEA = {
 {"id":"vC1OJT4yDFg","t":"SKICÁŘ: AKVAREL 5 – Jak namíchat barvu a základy barevné teorie","ch":"","cz":"Česky: míchání barev z primárních, doplňkové barvy a jak barvu ztlumit."},
 {"id":"bIcF2e3KWKI","t":"Colour Temperature Explained: Warm and Cool Colours for Artists","ch":"","cz":"Co je teplota barvy a proč i červená může být „studenější“ než jiná červená."},
 {"id":"XGSsbt2GwsU","t":"The Secrets of Colour Temperature (Warm and Cool Colours)","ch":"","cz":"Teplé světlo – studené stíny a naopak; jak teplota barvy vytváří prostor."},
-{"id":"2RAWUwz_JeU","t":"Warm and Cool Colors in Landscape Painting","ch":"","cz":"Teplé a studené barvy v krajině – popředí, pozadí a vzdušná perspektiva."},
 {"id":"iP97XXdpFpA","t":"How to improve your paintings by understanding tonal values & contrast","ch":"","cz":"Tónové hodnoty a kontrast – proč obraz „funguje“ i v černobílé verzi."},
-{"id":"ac_iRENyHpA","t":"Tonal Values in Watercolour Painting","ch":"","cz":"Jak v akvarelu postupně budovat tóny od nejsvětlejšího po nejtmavší."},
-{"id":"UvonWw55SuI","t":"The Importance of Tonal Value – watercolor demonstration","ch":"Daniel Novotny","cz":"Ukázka malby, ve které hlavní roli hraje správně odstupňovaný tón."}
+{"id":"ac_iRENyHpA","t":"Tonal Values in Watercolour Painting","ch":"","cz":"Jak v akvarelu postupně budovat tóny od nejsvětlejšího po nejtmavší."}
 ],
 "zatisi": [
 {"id":"Is9hbzt8a8o","t":"Watercolor Painting Still Life Demonstration (Step by Step)","ch":"","cz":"Zátiší krok za krokem – kresba, první lazura, stíny a dokončení."},
